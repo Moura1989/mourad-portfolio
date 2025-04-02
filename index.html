@@ -678,9 +678,12 @@
         }
         
         .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
+    width: 100%;
+    height: auto; /* Allows natural image height */
+    max-height: 500px; /* Limits maximum height */
+    object-fit: contain; /* Shows full image without cropping */
+    margin: 0 auto; /* Centers the image */
+    display: block;
         }
         
         .slide-caption {
