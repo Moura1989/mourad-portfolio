@@ -816,6 +816,63 @@
                 transform: translateY(0);
             }
         }
+/* Portfolio Video Styles */
+.portfolio-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.facebook-video {
+    height: 300px;
+    aspect-ratio: 1 / 1;
+}
+
+.instagram-video {
+    height: 400px;
+    aspect-ratio: 9 / 16;
+}
+
+.tiktok-video {
+    height: 400px;
+    aspect-ratio: 9 / 16;
+}
+
+.youtube-video {
+    height: 200px;
+    aspect-ratio: 16 / 9;
+}
+
+.portfolio-img img.thumbnail,
+.portfolio-img iframe.video-iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.portfolio-overlay {
+    z-index: 10;
+    opacity: 1; /* Always visible until video plays */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .facebook-video { height: 250px; }
+    .instagram-video, .tiktok-video { height: 350px; }
+    .youtube-video { height: 150px; }
+}
+
+@media (max-width: 576px) {
+    .facebook-video { height: 200px; }
+    .instagram-video, .tiktok-video { height: 300px; }
+    .youtube-video { height: 120px; }
+}
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -1035,7 +1092,7 @@
         </div>
     </section>
 
-<!-- Portfolio Section with 20 Videos -->
+<!-- Portfolio Section with 20 Embedded Videos -->
 <section id="portfolio" class="section portfolio">
     <div class="container">
         <h2 class="section-title">My Portfolio</h2>
@@ -1050,56 +1107,61 @@
             <!-- Facebook Videos (5) -->
             <div class="portfolio-item" data-category="facebook">
                 <div class="portfolio-img facebook-video">
-                    <img src="https://placehold.co/300x300?text=Facebook+Video+1" alt="Facebook Video 1">
+                    <img src="https://placehold.co/300x300?text=Facebook+Video+1" alt="Facebook Video 1" class="thumbnail">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false&width=300&height=300&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Urban Development</h3>
                         <p>Challenges in North African cities</p>
-                        <a href="https://www.facebook.com/AlArabiyaTunisia/videos/740974928194081/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="facebook">
                 <div class="portfolio-img facebook-video">
-                    <img src="https://placehold.co/300x300?text=Facebook+Video+2" alt="Facebook Video 2">
+                    <img src="https://placehold.co/300x300?text=Facebook+Video+2" alt="Facebook Video 2" class="thumbnail">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=false&width=300&height=300&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Cultural Event</h3>
                         <p>Live coverage of a regional festival</p>
-                        <a href="https://www.facebook.com/alhadath.Tunis/videos/1869022863561310/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="facebook">
                 <div class="portfolio-img facebook-video">
-                    <img src="https://placehold.co/300x300?text=Facebook+Video+3" alt="Facebook Video 3">
+                    <img src="https://placehold.co/300x300?text=Facebook+Video+3" alt="Facebook Video 3" class="thumbnail">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F607226045574543%2F&show_text=false&width=300&height=300&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Social Campaign</h3>
                         <p>Promoting local tourism</p>
-                        <a href="https://www.facebook.com/AlArabiyaTunisia/videos/607226045574543/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="facebook">
                 <div class="portfolio-img facebook-video">
-                    <img src="https://placehold.co/300x300?text=Facebook+Video+4" alt="Facebook Video 4">
+                    <img src="https://placehold.co/300x300?text=Facebook+Video+4" alt="Facebook Video 4" class="thumbnail">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1721315035386670%2F&show_text=false&width=300&height=300&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>News Feature</h3>
                         <p>Highlighting community efforts</p>
-                        <a href="https://www.facebook.com/AlArabiyaTunisia/videos/1721315035386670/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="facebook">
                 <div class="portfolio-img facebook-video">
-                    <img src="https://placehold.co/300x300?text=Facebook+Video+5" alt="Facebook Video 5">
+                    <img src="https://placehold.co/300x300?text=Facebook+Video+5" alt="Facebook Video 5" class="thumbnail">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=300&height=300&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Tech Innovation</h3>
                         <p>Startups transforming Tunisia</p>
-                        <a href="https://www.facebook.com/alhadath.Tunis/videos/859467989132065/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
@@ -1107,56 +1169,61 @@
             <!-- Instagram Videos (5) -->
             <div class="portfolio-item" data-category="instagram">
                 <div class="portfolio-img instagram-video">
-                    <img src="https://placehold.co/225x400?text=Instagram+Video+1" alt="Instagram Video 1">
+                    <img src="https://placehold.co/225x400?text=Instagram+Video+1" alt="Instagram Video 1" class="thumbnail">
+                    <iframe src="https://www.instagram.com/reel/DHrhPEAigaP/embed" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Reels Fashion</h3>
                         <p>Trendy outfit showcase</p>
-                        <a href="https://www.instagram.com/reel/DHrhPEAigaP/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="instagram">
                 <div class="portfolio-img instagram-video">
-                    <img src="https://placehold.co/225x400?text=Instagram+Video+2" alt="Instagram Video 2">
+                    <img src="https://placehold.co/225x400?text=Instagram+Video+2" alt="Instagram Video 2" class="thumbnail">
+                    <iframe src="https://www.instagram.com/reel/DHqtZMKqgga/embed" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Story Highlights</h3>
                         <p>Behind-the-scenes of an event</p>
-                        <a href="https://www.instagram.com/reel/DHqtZMKqgga/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="instagram">
                 <div class="portfolio-img instagram-video">
-                    <img src="https://placehold.co/225x400?text=Instagram+Video+3" alt="Instagram Video 3">
+                    <img src="https://placehold.co/225x400?text=Instagram+Video+3" alt="Instagram Video 3" class="thumbnail">
+                    <iframe src="https://www.instagram.com/reel/DHUcCacB9ar/embed" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Reels Tutorial</h3>
                         <p>Quick video editing tips</p>
-                        <a href="https://www.instagram.com/reel/DHUcCacB9ar/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="instagram">
                 <div class="portfolio-img instagram-video">
-                    <img src="https://placehold.co/225x400?text=Instagram+Video+4" alt="Instagram Video 4">
+                    <img src="https://placehold.co/225x400?text=Instagram+Video+4" alt="Instagram Video 4" class="thumbnail">
+                    <iframe src="https://www.instagram.com/reel/DGZGwTSp-zp/embed" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Promo Reel</h3>
                         <p>Product launch teaser</p>
-                        <a href="https://www.instagram.com/reel/DGZGwTSp-zp/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="instagram">
                 <div class="portfolio-img instagram-video">
-                    <img src="https://placehold.co/225x400?text=Instagram+Video+5" alt="Instagram Video 5">
+                    <img src="https://placehold.co/225x400?text=Instagram+Video+5" alt="Instagram Video 5" class="thumbnail">
+                    <iframe src="https://www.instagram.com/reel/DGEautVgTiY/embed" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>Collab Reel</h3>
                         <p>Partnered with a local influencer</p>
-                        <a href="https://www.instagram.com/reel/DGEautVgTiY/" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
@@ -1164,56 +1231,61 @@
             <!-- TikTok Videos (5) -->
             <div class="portfolio-item" data-category="tiktok">
                 <div class="portfolio-img tiktok-video">
-                    <img src="https://placehold.co/225x400?text=TikTok+Video+1" alt="TikTok Video 1">
+                    <img src="https://placehold.co/225x400?text=TikTok+Video+1" alt="TikTok Video 1" class="thumbnail">
+                    <iframe src="https://www.tiktok.com/embed/v2/7437258133514226999" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>TikTok Challenge</h3>
                         <p>Viral dance trend participation</p>
-                        <a href="https://www.tiktok.com/@alhadath.tunisia/video/7437258133514226999" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="tiktok">
                 <div class="portfolio-img tiktok-video">
-                    <img src="https://placehold.co/225x400?text=TikTok+Video+2" alt="TikTok Video 2">
+                    <img src="https://placehold.co/225x400?text=TikTok+Video+2" alt="TikTok Video 2" class="thumbnail">
+                    <iframe src="https://www.tiktok.com/embed/v2/7445432285534506246" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>TikTok News</h3>
                         <p>Quick update on current events</p>
-                        <a href="https://www.tiktok.com/@alhadath.tunisia/video/7445432285534506246" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="tiktok">
                 <div class="portfolio-img tiktok-video">
-                    <img src="https://placehold.co/225x400?text=TikTok+Video+3" alt="TikTok Video 3">
+                    <img src="https://placehold.co/225x400?text=TikTok+Video+3" alt="TikTok Video 3" class="thumbnail">
+                    <iframe src="https://www.tiktok.com/embed/v2/7434822840416849207" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>TikTok Story</h3>
                         <p>Day-in-the-life snippet</p>
-                        <a href="https://www.tiktok.com/@alhadath.tunisia/video/7434822840416849207" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="tiktok">
                 <div class="portfolio-img tiktok-video">
-                    <img src="https://placehold.co/225x400?text=TikTok+Video+4" alt="TikTok Video 4">
+                    <img src="https://placehold.co/225x400?text=TikTok+Video+4" alt="TikTok Video 4" class="thumbnail">
+                    <iframe src="https://www.tiktok.com/embed/v2/7448657913800871174" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>TikTok Ad</h3>
                         <p>Short-form promotional clip</p>
-                        <a href="https://www.tiktok.com/@alhadath.tunisia/video/7448657913800871174" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="tiktok">
                 <div class="portfolio-img tiktok-video">
-                    <img src="https://placehold.co/225x400?text=TikTok+Video+5" alt="TikTok Video 5">
+                    <img src="https://placehold.co/225x400?text=TikTok+Video+5" alt="TikTok Video 5" class="thumbnail">
+                    <iframe src="https://www.tiktok.com/embed/v2/7390610100265831685" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>TikTok Series</h3>
                         <p>Multi-part cultural feature</p>
-                        <a href="https://www.tiktok.com/@alhadath.tunisia/video/7390610100265831685" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
@@ -1221,56 +1293,61 @@
             <!-- YouTube Videos (5) -->
             <div class="portfolio-item" data-category="youtube">
                 <div class="portfolio-img youtube-video">
-                    <img src="https://img.youtube.com/vi/_Cbf-w8psAU/maxresdefault.jpg" alt="YouTube Video 1">
+                    <img src="https://img.youtube.com/vi/_Cbf-w8psAU/maxresdefault.jpg" alt="YouTube Video 1" class="thumbnail">
+                    <iframe src="https://www.youtube.com/embed/_Cbf-w8psAU?autoplay=0&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>YouTube Documentary</h3>
                         <p>Exploring urban challenges</p>
-                        <a href="https://www.youtube.com/watch?v=_Cbf-w8psAU" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="youtube">
                 <div class="portfolio-img youtube-video">
-                    <img src="https://img.youtube.com/vi/6yV5yGqKDiw/maxresdefault.jpg" alt="YouTube Video 2">
+                    <img src="https://img.youtube.com/vi/6yV5yGqKDiw/maxresdefault.jpg" alt="YouTube Video 2" class="thumbnail">
+                    <iframe src="https://www.youtube.com/embed/6yV5yGqKDiw?autoplay=0&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>YouTube Feature</h3>
                         <p>Highlighting local innovation</p>
-                        <a href="https://www.youtube.com/watch?v=6yV5yGqKDiw" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="youtube">
                 <div class="portfolio-img youtube-video">
-                    <img src="https://img.youtube.com/vi/VKbUcbXmh3c/maxresdefault.jpg" alt="YouTube Video 3">
+                    <img src="https://img.youtube.com/vi/VKbUcbXmh3c/maxresdefault.jpg" alt="YouTube Video 3" class="thumbnail">
+                    <iframe src="https://www.youtube.com/embed/VKbUcbXmh3c?autoplay=0&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>YouTube Interview</h3>
                         <p>Talk with a community leader</p>
-                        <a href="https://www.youtube.com/watch?v=VKbUcbXmh3c" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="youtube">
                 <div class="portfolio-img youtube-video">
-                    <img src="https://img.youtube.com/vi/RDfVHunUOC0/maxresdefault.jpg" alt="YouTube Video 4">
+                    <img src="https://img.youtube.com/vi/RDfVHunUOC0/maxresdefault.jpg" alt="YouTube Video 4" class="thumbnail">
+                    <iframe src="https://www.youtube.com/embed/RDfVHunUOC0?autoplay=0&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>YouTube Vlog</h3>
                         <p>Travel through Tunisia</p>
-                        <a href="https://www.youtube.com/watch?v=RDfVHunUOC0" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
             <div class="portfolio-item" data-category="youtube">
                 <div class="portfolio-img youtube-video">
-                    <img src="https://img.youtube.com/vi/XBVmTjVPNT4/maxresdefault.jpg" alt="YouTube Video 5">
+                    <img src="https://img.youtube.com/vi/XBVmTjVPNT4/maxresdefault.jpg" alt="YouTube Video 5" class="thumbnail">
+                    <iframe src="https://www.youtube.com/embed/XBVmTjVPNT4?autoplay=0&mute=1" frameborder="0" allowfullscreen class="video-iframe" style="display: none;"></iframe>
                     <div class="portfolio-overlay">
                         <i class="fas fa-play play-icon"></i>
                         <h3>YouTube Short Doc</h3>
                         <p>Community rebuilding story</p>
-                        <a href="https://youtu.be/XBVmTjVPNT4?si=MGDd6apqmGJo3PFI" target="_blank" class="btn">Watch Video</a>
+                        <button class="btn play-video-btn">Watch Video</button>
                     </div>
                 </div>
             </div>
@@ -1598,8 +1675,30 @@
                     }, 100);
                 });
                 window.removeEventListener('scroll', arguments.callee);
-            }
-        });
+// Video Playback Toggle
+const playButtons = document.querySelectorAll('.play-video-btn');
+
+playButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const portfolioImg = button.closest('.portfolio-img');
+        const thumbnail = portfolioImg.querySelector('.thumbnail');
+        const iframe = portfolioImg.querySelector('.video-iframe');
+        const overlay = portfolioImg.querySelector('.portfolio-overlay');
+
+        // Hide thumbnail and overlay, show iframe
+        thumbnail.style.display = 'none';
+        overlay.style.display = 'none';
+        iframe.style.display = 'block';
+
+        // For YouTube, remove mute and trigger play
+        if (iframe.src.includes('youtube.com')) {
+            iframe.src = iframe.src.replace('mute=1', 'mute=0&autoplay=1');
+        } else {
+            // For other platforms, attempt to autoplay (may depend on browser policies)
+            iframe.src += iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1';
+        }
+    });
+});
     </script>
 </body>
 </html>
