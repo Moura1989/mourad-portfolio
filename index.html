@@ -12,70 +12,262 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* [Previous CSS remains the same until portfolio video styles] */
-        
-        .portfolio-img {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .facebook-video { height: 300px; aspect-ratio: 1 / 1; }
-        .instagram-video { height: 400px; aspect-ratio: 9 / 16; }
-        .tiktok-video { height: 400px; aspect-ratio: 9 / 16; }
-        .youtube-video { height: 200px; aspect-ratio: 16 / 9; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .portfolio-img img.thumbnail,
-        .portfolio-img iframe.video-iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e40af);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+        }
+
+        nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            transition: opacity 0.3s ease;
+            background: white;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .portfolio-img {
+            position: relative;
+            width: 100%;
+        }
+
+        .portfolio-img iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            display: none;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
         }
 
         .portfolio-overlay {
-            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
             opacity: 1;
+            transition: var(--transition);
+        }
+
+        .portfolio-item.playing .portfolio-overlay {
+            display: none;
+        }
+
+        .portfolio-item.playing img {
+            display: none;
+        }
+
+        .portfolio-item.playing iframe {
+            display: block;
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 0.9;
+        .slider-arrow.prev { left: 20px; }
+        .slider-arrow.next { right: 20px; }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
         }
 
-        .portfolio-img.playing .thumbnail {
-            opacity: 0;
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            cursor: pointer;
         }
 
-        .portfolio-img.playing .video-iframe {
-            opacity: 1;
+        .slider-dot.active {
+            background: var(--primary);
         }
 
-        .portfolio-img .video-iframe {
-            opacity: 0;
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .facebook-video { height: 250px; }
-            .instagram-video, .tiktok-video { height: 350px; }
-            .youtube-video { height: 150px; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .header-title { font-size: 2.5rem; }
+            .header-subtitle { font-size: 1.2rem; }
         }
-
-        @media (max-width: 576px) {
-            .facebook-video { height: 200px; }
-            .instagram-video, .tiktok-video { height: 300px; }
-            .youtube-video { height: 120px; }
-        }
-
-        /* [Rest of the previous CSS remains the same] */
     </style>
 </head>
 <body>
-    <!-- Header/Hero Section -->
     <header>
         <div class="container header-content">
             <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
@@ -83,19 +275,17 @@
             <p class="header-subtitle">Video Journalist & Social Media Strategist</p>
             <div class="header-btns">
                 <a href="#portfolio" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#contact" class="btn">Get In Touch</a>
             </div>
         </div>
     </header>
 
-    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
+            <a href="#" class="logo">Mourad</a>
             <div class="nav-links">
-                <a href="#about" class="active">About</a>
+                <a href="#about">About</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">
@@ -104,59 +294,56 @@
         </div>
     </nav>
 
-    <!-- About Section -->
     <section id="about" class="section about">
-        <!-- [Previous About section content remains the same] -->
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience.</p>
+        </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <h2 class="section-title">My Portfolio</h2>
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <button class="filter-btn" data-filter="facebook">Facebook</button>
-                <button class="filter-btn" data-filter="instagram">Instagram</button>
-                <button class="filter-btn" data-filter="tiktok">TikTok</button>
-                <button class="filter-btn" data-filter="youtube">YouTube</button>
-            </div>
             <div class="portfolio-grid">
-                <!-- [Previous portfolio items remain the same, only changing the play button class] -->
-                <!-- Example of one item (apply to all): -->
-                <div class="portfolio-item" data-category="facebook">
-                    <div class="portfolio-img facebook-video">
-                        <img src="https://placehold.co/300x300?text=Facebook+Video+1" alt="Facebook Video 1" class="thumbnail">
-                        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false&width=300&height=300" frameborder="0" allowfullscreen class="video-iframe"></iframe>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://placehold.co/300x300?text=Video+1" alt="Video 1">
+                        <iframe src="https://www.youtube.com/embed/_Cbf-w8psAU" allowfullscreen></iframe>
                         <div class="portfolio-overlay">
                             <i class="fas fa-play play-icon"></i>
-                            <h3>Urban Development</h3>
-                            <p>Challenges in North African cities</p>
-                            <button class="btn video-play-btn">Watch Video</button>
+                            <h3>YouTube Documentary</h3>
+                            <button class="btn play-video">Play Video</button>
                         </div>
                     </div>
                 </div>
-                <!-- [Rest of portfolio items follow the same pattern] -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://placehold.co/300x300?text=Video+2" alt="Video 2">
+                        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false" allowfullscreen></iframe>
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Facebook Video</h3>
+                            <button class="btn play-video">Play Video</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Image Slider Section -->
     <section class="section slider-section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="slider-container">
                 <div class="slider">
                     <div class="slide">
-                        <img src="https://placehold.co/1200x500?text=Project+1" alt="Project 1">
-                        <div class="slide-caption">Project 1 - Video Production</div>
+                        <img src="https://placehold.co/1200x400?text=Project+1" alt="Project 1">
                     </div>
                     <div class="slide">
-                        <img src="https://placehold.co/1200x500?text=Project+2" alt="Project 2">
-                        <div class="slide-caption">Project 2 - Social Media Campaign</div>
+                        <img src="https://placehold.co/1200x400?text=Project+2" alt="Project 2">
                     </div>
                     <div class="slide">
-                        <img src="https://placehold.co/1200x500?text=Project+3" alt="Project 3">
-                        <div class="slide-caption">Project 3 - Documentary Feature</div>
+                        <img src="https://placehold.co/1200x400?text=Project+3" alt="Project 3">
                     </div>
                 </div>
                 <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
@@ -166,91 +353,82 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="section certifications">
-        <!-- [Previous Certifications section content remains the same] -->
-    </section>
-
-    <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <!-- [Previous Contact section content remains the same] -->
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p>Email: mouradrazgallah01@gmail.com</p>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <!-- [Previous Footer content remains the same] -->
-    </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <!-- JavaScript -->
     <script>
-        // [Previous JavaScript remains the same until the video playback section]
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
 
-        // Video Playback Toggle
-        const playButtons = document.querySelectorAll('.video-play-btn');
-
+        // Video Playback
+        const playButtons = document.querySelectorAll('.play-video');
         playButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const portfolioImg = button.closest('.portfolio-img');
-                const thumbnail = portfolioImg.querySelector('.thumbnail');
-                const iframe = portfolioImg.querySelector('.video-iframe');
-                const overlay = portfolioImg.querySelector('.portfolio-overlay');
-
-                portfolioImg.classList.add('playing');
-                overlay.style.opacity = '0';
-
-                // Handle different platforms
+                const portfolioItem = button.closest('.portfolio-item');
+                portfolioItem.classList.add('playing');
+                
+                const iframe = portfolioItem.querySelector('iframe');
                 if (iframe.src.includes('youtube.com')) {
-                    iframe.src = iframe.src.replace('mute=1', 'mute=0&autoplay=1');
-                } else if (iframe.src.includes('facebook.com')) {
-                    iframe.src = iframe.src.replace('mute=1', 'mute=0');
-                } else {
                     iframe.src += iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1';
                 }
             });
         });
 
-        // Slider functionality
+        // Slider
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('.slider-nav');
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
+        const dotsContainer = document.querySelector('.slider-nav');
         let currentIndex = 0;
-        const slideCount = slides.length;
 
         // Create dots
-        for (let i = 0; i < slideCount; i++) {
+        slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.classList.add('slider-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
             dotsContainer.appendChild(dot);
-        }
+        });
+
         const dots = document.querySelectorAll('.slider-dot');
 
         function updateSlider() {
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
         }
 
         function goToSlide(index) {
-            currentIndex = (index + slideCount) % slideCount;
+            currentIndex = index % slides.length;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
             updateSlider();
         }
 
         prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
         nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
-        let slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        slider.addEventListener('mouseleave', () => slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000));
+        // Auto-slide
+        let interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        slider.addEventListener('mouseenter', () => clearInterval(interval));
+        slider.addEventListener('mouseleave', () => interval = setInterval(() => goToSlide(currentIndex + 1), 5000));
 
-        // [Rest of the previous JavaScript remains the same]
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
