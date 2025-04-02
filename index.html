@@ -9,15 +9,16 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f4f6f9;
             color: #333;
         }
         header {
             background: linear-gradient(135deg, #007bff, #6610f2);
             color: #fff;
-            padding: 30px;
+            padding: 50px 0;
             text-align: center;
-            font-size: 24px;
+            font-size: 36px;
+            font-weight: bold;
         }
         nav {
             display: flex;
@@ -38,14 +39,18 @@
         }
         .container {
             padding: 40px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             background: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            margin-top: 40px;
         }
         h2 {
             color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         footer {
             background: #343a40;
@@ -64,36 +69,76 @@
             border-radius: 50%;
             border: 4px solid #007bff;
         }
-        .btn {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-        /* Portfolio grid */
+        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 40px;
         }
         .portfolio-item {
             background: #fff;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             text-align: center;
+            position: relative;
         }
         .portfolio-item img, .portfolio-item video {
             width: 100%;
             height: auto;
             border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .portfolio-item img:hover, .portfolio-item video:hover {
+            transform: scale(1.05);
+        }
+        .portfolio-item p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #007bff;
+        }
+        /* Modal (for images and videos) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 70%;
+            max-height: 80%;
+        }
+        .modal img, .modal video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #ddd;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -109,15 +154,22 @@
         <a href="#contact">Contact</a>
     </nav>
     <div class="container">
-        <img src="profile.png?v=1" alt="Mourad Razgallah" class="profile-img">
+        <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
+        
+        <!-- About Me Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a video journalist and social media manager with over 10 years of experience. I have published hundreds of videos and thousands of news stories, specializing in content strategy, video production, and social media advertising.</p>
+            <p>I am a video journalist and social media manager with over 10 years of experience. I specialize in content strategy, video production, and social media advertising.</p>
         </section>
+
+        <!-- Portfolio Section -->
         <section id="portfolio">
             <h2>Portfolio</h2>
-            <p>Check out my work, including published videos, news stories, and YouTube content.</p>
+            <p>Check out my work, including videos and images I’ve created and shared globally.</p>
+            
+            <!-- Portfolio Grid -->
             <div class="portfolio-grid">
+
                 <!-- Video 1 -->
                 <div class="portfolio-item">
                     <a href="https://www.youtube.com/watch?v=Y-TcLkVUinM" target="_blank">
@@ -152,8 +204,8 @@
 
                 <!-- Video 5 -->
                 <div class="portfolio-item">
-                    <a href="https://youtu.be/RHNhb2rccZI?si=KEZJef3vgtKRNZyo" target="_blank">
-                        <img src="https://img.youtube.com/vi/KEZJef3vgtKRNZyo/0.jpg" alt="Video 5">
+                    <a href="https://youtu.be/EWGTkEblZvw?si=Yi1rN8Pqj4HJXSm5" target="_blank">
+                        <img src="https://img.youtube.com/vi/EWGTkEblZvw/0.jpg" alt="Video 5">
                     </a>
                     <p>Video Project 5</p>
                 </div>
@@ -167,43 +219,75 @@
                 </div>
 
                 <!-- Image 1 -->
-<div class="portfolio-item">
-    <img src="image1.jpg" alt="Image 1">
-    <p>Image Project 1</p>
-</div>
+                <div class="portfolio-item">
+                    <img src="image1.jpg" alt="Image 1" onclick="openModal(this)">
+                    <p>Image Project 1</p>
+                </div>
 
-<!-- Image 2 -->
-<div class="portfolio-item">
-    <img src="image2.jpg" alt="Image 2">
-    <p>Image Project 2</p>
-</div>
+                <!-- Image 2 -->
+                <div class="portfolio-item">
+                    <img src="image2.jpg" alt="Image 2" onclick="openModal(this)">
+                    <p>Image Project 2</p>
+                </div>
 
-<!-- Image 3 -->
-<div class="portfolio-item">
-    <img src="image3.jpg" alt="Image 3">
-    <p>Image Project 3</p>
-</div>
-            </div>
+                <!-- Image 3 -->
+                <div class="portfolio-item">
+                    <img src="image3.jpg" alt="Image 3" onclick="openModal(this)">
+                    <p>Image Project 3</p>
+                </div>
+
+            </div> <!-- Portfolio Grid End -->
+
         </section>
+
+        <!-- Certifications Section -->
         <section id="certifications">
             <h2>Certifications</h2>
             <ul>
                 <li>Google Analytics Certification</li>
                 <li>Google Ads Video Certification</li>
                 <li>Content Management Certification from HubSpot</li>
-                <li>AI-Powered Performance Ads Certification</li>
                 <li>Content Marketing Certification</li>
-                <li>Strategic Social Media</li>
-                <li>SEO Foundations</li>
-                <li>LinkedIn Content and Creative Design</li>
             </ul>
         </section>
+
+        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:mouradrazgallah01@gmail.com">mouradrazgallah01@gmail.com</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/mourad-razgallah-443640171/" target="_blank">Connect with me</a></p>
         </section>
+
+    </div> <!-- Container End -->
+
+    <!-- Modal for Image & Video -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <!-- Image or Video will be inserted here -->
+        </div>
     </div>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById("myModal");
+            const modalContent = modal.querySelector(".modal-content");
+
+            if (element.tagName === "IMG") {
+                modalContent.innerHTML = `<img src="${element.src}" alt="${element.alt}">`;
+            } else if (element.tagName === "VIDEO") {
+                modalContent.innerHTML = `<video controls><source src="${element.src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+
     <footer>
         <p>&copy; 2025 Mourad Razgallah. All Rights Reserved.</p>
     </footer>
