@@ -898,7 +898,68 @@
             .slide img {
                 height: 250px;
             }
-        }
+        
+        /* Portfolio Video Sizes */
+.portfolio-img {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Facebook Video Size (1:1 Square) */
+.facebook-video {
+    height: 300px; /* Square */
+    aspect-ratio: 1 / 1;
+}
+
+/* Instagram Video Size (9:16 Vertical for Reels) */
+.instagram-video {
+    height: 400px; /* Vertical */
+    aspect-ratio: 9 / 16;
+}
+
+/* TikTok Video Size (9:16 Vertical) */
+.tiktok-video {
+    height: 400px; /* Vertical */
+    aspect-ratio: 9 / 16;
+}
+
+/* YouTube Video Size (16:9 Landscape) */
+.youtube-video {
+    height: 200px; /* Landscape */
+    aspect-ratio: 16 / 9;
+}
+
+/* Ensure images fit properly */
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .facebook-video {
+        height: 250px;
+    }
+    .instagram-video, .tiktok-video {
+        height: 350px;
+    }
+    .youtube-video {
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .facebook-video {
+        height: 200px;
+    }
+    .instagram-video, .tiktok-video {
+        height: 300px;
+    }
+    .youtube-video {
+        height: 120px;
+    }
+}
     </style>
 </head>
 <body>
