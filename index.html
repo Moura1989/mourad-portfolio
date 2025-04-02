@@ -652,6 +652,125 @@
             transform: translateY(-3px);
         }
 
+        /* Image Slider Styles */
+        .slider-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .slider-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--primary);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .slider-arrow:hover {
+            background: white;
+        }
+        
+        .slider-arrow.prev {
+            left: 20px;
+        }
+        
+        .slider-arrow.next {
+            right: 20px;
+        }
+        
+        /* Form Validation Styles */
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+        
+        .form-group .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .form-success {
+            display: none;
+            background: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -733,6 +852,10 @@
             .portfolio-filter {
                 flex-wrap: wrap;
             }
+
+            .slide img {
+                height: 350px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -752,6 +875,10 @@
 
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .slide img {
+                height: 250px;
             }
         }
     </style>
@@ -934,6 +1061,45 @@
         </div>
     </section>
 
+    <!-- Image Slider Section -->
+    <section class="slider-section">
+        <div class="container">
+            <h2 class="section-title">Infography Work</h2>
+            <div class="slider-container">
+                <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                <div class="slider">
+                    <div class="slide">
+                        <img src="infography1.jpg" alt="Infography Project 1">
+                        <div class="slide-caption">
+                            <h3>Data Visualization Project</h3>
+                            <p>Interactive infographic showing demographic trends</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="infography2.jpg" alt="Infography Project 2">
+                        <div class="slide-caption">
+                            <h3>Business Process Infographic</h3>
+                            <p>Visual representation of complex workflow systems</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="infography3.jpg" alt="Infography Project 3">
+                        <div class="slide-caption">
+                            <h3>Statistical Report Design</h3>
+                            <p>Annual report visualization for corporate client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certifications Section -->
     <section id="certifications" class="section certifications">
         <div class="container">
@@ -1018,11 +1184,11 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
+                            <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>LinkedIn</h3>
-                            <a href="https://www.linkedin.com/in/mourad-razgallah-443640171/" target="_blank">Connect with me</a>
+                            <h3>Phone</h3>
+                            <a href="tel:+21612345678">+216 12 345 678</a>
                         </div>
                     </div>
                     
@@ -1032,36 +1198,47 @@
                         </div>
                         <div class="contact-text">
                             <h3>Location</h3>
-                            <p>Tunis, Tunisia (Available for remote work worldwide)</p>
+                            <p>Tunis, Tunisia</p>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-vimeo-v"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                    <form id="contactForm" action="https://formspree.io/f/mouradrazgallah01@gmail.com" method="POST">
+                        <div id="formSuccess" class="form-success">
+                            Thank you! Your message has been sent successfully.
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message">Please enter your name</div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message">Please enter a valid email</div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <div class="error-message">Please enter a subject</div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -1072,13 +1249,14 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#portfolio">Work</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
-            <p class="copyright">&copy; 2025 Mourad Razgallah. All Rights Reserved.</p>
+            <p class="copyright">© 2023 Mourad Razgallah. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1104,7 +1282,7 @@
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
+                filterBtns.forEach(btn => btn.classList.remove('active'));
                 // Add active class to clicked button
                 btn.classList.add('active');
                 
@@ -1120,7 +1298,82 @@
             });
         });
 
-        // Smooth Scrolling for Anchor Links
+        // Image Slider
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + slideCount) % slideCount;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause on hover
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1136,72 +1389,90 @@
                     });
                     
                     // Close mobile menu if open
-                    if (window.innerWidth <= 768) {
+                    if (navLinks.style.display === 'flex') {
                         navLinks.style.display = 'none';
                     }
                 }
             });
         });
 
-        // Back to Top Button
-        const backToTopBtn = document.querySelector('.back-to-top');
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('active');
-            } else {
-                backToTopBtn.classList.remove('active');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            
+            // Reset error states
+            requiredFields.forEach(field => {
+                field.parentElement.classList.remove('error');
+            });
+            
+            // Validate required fields
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.parentElement.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate email format
+            const emailField = contactForm.querySelector('[type="email"]');
+            if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+                emailField.parentElement.classList.add('error');
+                emailField.parentElement.querySelector('.error-message').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Submit form using Formspree
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        formSuccess.style.display = 'block';
+                        contactForm.reset();
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem sending your message. Please try again later.');
+                });
             }
         });
 
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        // Initialize skill bars animation
+        window.addEventListener('scroll', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const aboutSection = document.querySelector('.about');
+            const aboutSectionTop = aboutSection.offsetTop;
+            const aboutSectionHeight = aboutSection.offsetHeight;
+            const scrollPosition = window.pageYOffset;
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For demonstration, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            
-            // Reset the form
-            contactForm.reset();
-        });
-
-        // Animate skills on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        
-        function animateSkills() {
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        }
-        
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('about-text')) {
-                        animateSkills();
-                    }
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        // Observe elements that should animate on scroll
-        document.querySelectorAll('.about-text, .portfolio-item, .cert-card').forEach(el => {
-            observer.observe(el);
+            if (scrollPosition > aboutSectionTop - window.innerHeight + aboutSectionHeight / 2) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', arguments.callee);
+            }
         });
     </script>
 </body>
