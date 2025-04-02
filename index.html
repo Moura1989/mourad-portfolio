@@ -157,24 +157,22 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: auto;
         }
 
         .modal-content {
             position: relative;
             width: 90%;
-            max-width: 900px;
+            max-width: 600px;
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            padding-top: var(--aspect-ratio, 56.25%); /* Default 16:9, overridden by JS */
         }
 
         .modal-video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 500px;
             border: none;
         }
 
@@ -455,7 +453,6 @@
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <button class="close-modal">×</button>
-            <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -483,7 +480,6 @@
 
         // Modal functionality
         const modal = document.getElementById('videoModal');
-        const modalVideo = document.querySelector('.modal-video');
         const modalContent = document.querySelector('.modal-content');
         const watchButtons = document.querySelectorAll('.watch-video');
         const closeModal = document.querySelector('.close-modal');
@@ -491,24 +487,57 @@
         watchButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const videoUrl = button.getAttribute('data-video');
-                const aspect = button.closest('.portfolio-item').getAttribute('data-aspect');
-                modalVideo.src = videoUrl;
+                const category = button.closest('.portfolio-item').getAttribute('data-category');
 
-                // Set aspect ratio dynamically
-                modalContent.style.setProperty('--aspect-ratio', aspect === '16-9' ? '56.25%' : '177.78%');
+                // Remove existing iframe or TikTok embed
+                modalContent.innerHTML = '<button class="close-modal">×</button>';
+
+                if (category === 'tiktok') {
+                    // Create TikTok embed dynamically
+                    const videoId = videoUrl.split('/').pop();
+                    const blockquote = document.createElement('blockquote');
+                    blockquote.className = 'tiktok-embed';
+                    blockquote.setAttribute('cite', `https://www.tiktok.com/@alhadath.tunisia/video/${videoId}`);
+                    blockquote.setAttribute('data-video-id', videoId);
+                    blockquote.style.maxWidth = '605px';
+                    blockquote.style.minWidth = '325px';
+                    modalContent.appendChild(blockquote);
+
+                    // Load TikTok embed script
+                    const script = document.createElement('script');
+                    script.src = 'https://www.tiktok.com/embed.js';
+                    script.async = true;
+                    modalContent.appendChild(script);
+                } else {
+                    // Use iframe for Facebook, Instagram, YouTube
+                    const iframe = document.createElement('iframe');
+                    iframe.className = 'modal-video';
+                    iframe.src = videoUrl;
+                    iframe.frameBorder = '0';
+                    iframe.allowFullscreen = true;
+                    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+                    modalContent.appendChild(iframe);
+                }
+
                 modal.style.display = 'flex';
+                // Reattach close event to new button
+                modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
             });
         });
 
-        closeModal.addEventListener('click', () => {
+        function closeModalHandler() {
             modal.style.display = 'none';
-            modalVideo.src = ''; // Stop video playback
-        });
+            modalContent.innerHTML = '<button class="close-modal">×</button>'; // Reset content
+            modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
+        }
+
+        closeModal.addEventListener('click', closeModalHandler);
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
-                modalVideo.src = ''; // Stop video playback
+                modalContent.innerHTML = '<button class="close-modal">×</button>'; // Reset content
+                modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
             }
         });
     </script>
