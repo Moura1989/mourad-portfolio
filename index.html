@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mourad Razgallah | Video Journalist & Social Media Strategist</title>
-    <meta name="description" content="Explore the professional portfolio of Mourad Razgallah, a video journalist and social media strategist with expertise in video production, documentaries, and digital campaigns.">
+    <meta name="description" content="Explore the professional portfolio of Mourad Razgallah, an award-winning video journalist and social media strategist with expertise in video production, documentaries, and digital campaigns.">
     <meta name="keywords" content="video journalism, social media strategy, documentaries, content creation, Mourad Razgallah">
     <meta name="author" content="Mourad Razgallah">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +20,11 @@
             --light: #f8fafc;
             --gray: #64748b;
             --light-gray: #e2e8f0;
-            --transition: all 0.3s ease;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         * {
@@ -37,9 +38,29 @@
             color: var(--dark);
             background-color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -51,9 +72,20 @@
 
         .section-title {
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             text-align: center;
+            position: relative;
             color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+            border-radius: 2px;
         }
 
         .btn {
@@ -62,23 +94,53 @@
             background: var(--primary);
             color: white;
             border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
-            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn:hover {
             background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+        }
+
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary), #1e40af);
             color: white;
-            padding: 100px 0;
+            padding: 100px 0 120px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
         }
 
         .header-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -86,32 +148,46 @@
         .header-title {
             font-size: 3.5rem;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
         }
 
         .header-subtitle {
             font-size: 1.5rem;
             margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
         }
 
         .header-btns {
             display: flex;
             gap: 15px;
             justify-content: center;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
         }
 
         .profile-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: var(--shadow-xl);
             margin: 0 auto 30px;
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
         }
 
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
-            background: white;
-            box-shadow: var(--shadow-md);
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -121,6 +197,13 @@
             padding: 15px 0;
         }
 
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
@@ -128,11 +211,141 @@
 
         .nav-links a {
             font-weight: 500;
-            color: var(--dark);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: width 1.5s ease;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .video-intro {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .video-intro iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .portfolio-grid {
@@ -149,22 +362,27 @@
             transition: var(--transition);
         }
 
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
         .portfolio-img {
             position: relative;
-            width: 100%;
+            overflow: hidden;
+            height: 200px; /* Consistent height for all videos */
         }
 
+        .portfolio-img img,
         .portfolio-img iframe {
             width: 100%;
-            height: 300px;
-            border: none;
-            display: none;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
 
-        .portfolio-img img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
         }
 
         .portfolio-overlay {
@@ -173,38 +391,342 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(37, 99, 235, 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
-            opacity: 1;
+            opacity: 0;
             transition: var(--transition);
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
-        .portfolio-item.playing .portfolio-overlay {
-            display: none;
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
         }
 
-        .portfolio-item.playing img {
-            display: none;
+        .portfolio-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
-        .portfolio-item.playing iframe {
-            display: block;
+        .portfolio-overlay p {
+            margin-bottom: 20px;
+        }
+
+        .portfolio-overlay .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .portfolio-overlay .btn:hover {
+            background: var(--light-gray);
         }
 
         .play-icon {
             font-size: 3rem;
+            color: white;
             margin-bottom: 15px;
         }
 
-        .slider-container {
+        /* Modal for Video Playback */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: 450px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: white;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-img {
+            height: 180px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+
+        .cert-img i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .cert-content {
+            padding: 20px;
+        }
+
+        .cert-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .cert-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), #1e40af);
+            color: white;
             position: relative;
             overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background: var(--secondary);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .contact-text h3 {
+            margin-bottom: 5px;
+        }
+
+        .contact-text a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Image Slider Styles */
+        .slider-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .slider-container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
         }
 
         .slider {
@@ -214,36 +736,33 @@
 
         .slide {
             min-width: 100%;
+            position: relative;
         }
 
         .slide img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
         }
 
-        .slider-arrow {
+        .slide-caption {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.8);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-
-        .slider-arrow.prev { left: 20px; }
-        .slider-arrow.next { right: 20px; }
 
         .slider-nav {
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            gap: 10px;
         }
 
         .slider-dot {
@@ -251,41 +770,210 @@
             height: 12px;
             border-radius: 50%;
             background: var(--light-gray);
+            margin: 0 5px;
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .slider-dot.active {
             background: var(--primary);
         }
 
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .slider-arrow:hover {
+            background: white;
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Form Validation Styles */
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+
+        .form-group .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-success {
+            display: none;
+            background: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .header-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .header-title { font-size: 2.5rem; }
-            .header-subtitle { font-size: 1.2rem; }
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-filter {
+                flex-wrap: wrap;
+            }
+
+            .slide img {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .header-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .slide img {
+                height: 250px;
+            }
+
+            .modal-video {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header/Hero Section -->
     <header>
         <div class="container header-content">
             <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
             <h1 class="header-title">Mourad Razgallah</h1>
-            <p class="header-subtitle">Video Journalist & Social Media Strategist</p>
+            <p class="header-subtitle">Award-Winning Video Journalist & Social Media Strategist</p>
             <div class="header-btns">
                 <a href="#portfolio" class="btn">View My Work</a>
-                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Mourad</a>
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
             <div class="nav-links">
-                <a href="#about">About</a>
+                <a href="#about" class="active">About</a>
                 <a href="#portfolio">Portfolio</a>
+                <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">
@@ -294,36 +982,280 @@
         </div>
     </nav>
 
+    <!-- About Section with Video Introduction -->
     <section id="about" class="section about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience.</p>
-        </div>
-    </section>
-
-    <section id="portfolio" class="section portfolio">
-        <div class="container">
-            <h2 class="section-title">My Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <img src="https://placehold.co/300x300?text=Video+1" alt="Video 1">
-                        <iframe src="https://www.youtube.com/embed/_Cbf-w8psAU" allowfullscreen></iframe>
-                        <div class="portfolio-overlay">
-                            <i class="fas fa-play play-icon"></i>
-                            <h3>YouTube Documentary</h3>
-                            <button class="btn play-video">Play Video</button>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Master of Visual Storytelling</h2>
+                    <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience. I excel in creating compelling content that captivates audiences across platforms like Facebook, X, Instagram, and TikTok. My work blends creativity with strategy, driving millions of views and meaningful engagement for brands and media outlets worldwide.</p>
+                    <p>Check out my introduction video below to see how I bring stories to life on social media!</p>
+                    <div class="video-intro">
+                        <iframe src="https://www.youtube.com/embed/YOUR_INTRO_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name"><span>Video Production</span><span>95%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name"><span>Social Media Strategy</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name"><span>Content Marketing</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name"><span>Video Editing</span><span>98%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="about-image">
+                    <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="facebook">Facebook</button>
+                <button class="filter-btn" data-filter="tiktok">TikTok</button>
+                <button class="filter-btn" data-filter="instagram">Instagram</button>
+                <button class="filter-btn" data-filter="youtube">YouTube</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Facebook Videos -->
+                <div class="portfolio-item" data-category="facebook">
                     <div class="portfolio-img">
-                        <img src="https://placehold.co/300x300?text=Video+2" alt="Video 2">
-                        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false" allowfullscreen></iframe>
+                        <img src="https://via.placeholder.com/300x200?text=Facebook+Video+1" alt="Facebook Video 1">
                         <div class="portfolio-overlay">
-                            <i class="fas fa-play play-icon"></i>
-                            <h3>Facebook Video</h3>
-                            <button class="btn play-video">Play Video</button>
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>News Update</h3>
+                            <p>Breaking news coverage for Al Arabiya Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/740974928194081/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Facebook+Video+2" alt="Facebook Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Community Story</h3>
+                            <p>Highlighting local initiatives in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/alhadath.Tunis/videos/1869022863561310/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Facebook+Video+3" alt="Facebook Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Event Recap</h3>
+                            <p>Coverage of a major cultural event</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/607226045574543/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Facebook+Video+4" alt="Facebook Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Travel Feature</h3>
+                            <p>Exploring Tunisia’s tourist attractions</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/1721315035386670/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Facebook+Video+5" alt="Facebook Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Social Campaign</h3>
+                            <p>Promoting social awareness in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/alhadath.Tunis/videos/859467989132065/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Videos -->
+                <div class="portfolio-item" data-category="tiktok">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=TikTok+Video+1" alt="TikTok Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Short News Clip</h3>
+                            <p>Quick update on regional news</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/@alhadath.tunisia/video/7437258133514226999">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=TikTok+Video+2" alt="TikTok Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Trendy Recap</h3>
+                            <p>Capturing a viral moment in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/@alhadath.tunisia/video/7445432285534506246">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=TikTok+Video+3" alt="TikTok Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Behind the Scenes</h3>
+                            <p>A peek into video production</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/@alhadath.tunisia/video/7434822840416849207">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=TikTok+Video+4" alt="TikTok Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Quick Tips</h3>
+                            <p>Social media strategy in 60 seconds</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/@alhadath.tunisia/video/7448657913800871174">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=TikTok+Video+5" alt="TikTok Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Viral Challenge</h3>
+                            <p>Participating in a trending challenge</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/@alhadath.tunisia/video/7390610100265831685">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instagram Videos -->
+                <div class="portfolio-item" data-category="instagram">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Instagram+Video+1" alt="Instagram Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story</h3>
+                            <p>A visual tale from Tunis</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHrhPEAigaP/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Instagram+Video+2" alt="Instagram Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Travel Reel</h3>
+                            <p>Showcasing Tunisia’s beauty</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHqtZMKqgga/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Instagram+Video+3" alt="Instagram Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Cultural Moment</h3>
+                            <p>Capturing a local festival</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHUcCacB9ar/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Instagram+Video+4" alt="Instagram Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Creative Edit</h3>
+                            <p>Stylish video editing showcase</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGZGwTSp-zp/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/300x200?text=Instagram+Video+5" alt="Instagram Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Brand Promo</h3>
+                            <p>Short ad for a local business</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGEautVgTiY/">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube Videos -->
+                <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/_Cbf-w8psAU/maxresdefault.jpg" alt="YouTube Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Documentary Feature</h3>
+                            <p>In-depth look at a social issue</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/_Cbf-w8psAU">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/6yV5yGqKDiw/maxresdefault.jpg" alt="YouTube Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Interview</h3>
+                            <p>Talk with a local influencer</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/6yV5yGqKDiw">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VKbUcbXmh3c/maxresdefault.jpg" alt="YouTube Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Tech Review</h3>
+                            <p>Exploring new media tools</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VKbUcbXmh3c">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/RDfVHunUOC0/maxresdefault.jpg" alt="YouTube Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Travel Vlog</h3>
+                            <p>Journey through Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/RDfVHunUOC0">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/XBVmTjVPNT4/maxresdefault.jpg" alt="YouTube Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Human Interest</h3>
+                            <p>Community rebuilding story</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/XBVmTjVPNT4">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -331,103 +1263,390 @@
         </div>
     </section>
 
-    <section class="section slider-section">
+    <!-- Image Slider Section -->
+    <section class="slider-section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Infography Work</h2>
             <div class="slider-container">
+                <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
                 <div class="slider">
                     <div class="slide">
-                        <img src="https://placehold.co/1200x400?text=Project+1" alt="Project 1">
+                        <img src="image1.jpg" alt="Infography Project 1">
+                        <div class="slide-caption">
+                            <h3>Social Media Analytics Dashboard</h3>
+                            <p>Designed a comprehensive dashboard tracking engagement across platforms</p>
+                        </div>
                     </div>
                     <div class="slide">
-                        <img src="https://placehold.co/1200x400?text=Project+2" alt="Project 2">
+                        <img src="image2.jpg" alt="Infography Project 2">
+                        <div class="slide-caption">
+                            <h3>Content Strategy Flowchart</h3>
+                            <p>Streamlined content creation process for a global brand</p>
+                        </div>
                     </div>
-                    <div class="slide">
-                        <img src="https://placehold.co/1200x400?text=Project+3" alt="Project 3">
-                    </div>
+                    <!-- Add remaining slides as needed -->
                 </div>
-                <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
                 <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
                 <div class="slider-nav"></div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <!-- Certifications Section -->
+    <section id="certifications" class="section certifications">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p>Email: mouradrazgallah01@gmail.com</p>
+            <h2 class="section-title">My Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-google"></i></div>
+                    <div class="cert-content">
+                        <h3>Google Analytics Certification</h3>
+                        <p>Mastered web analytics and data-driven decision making for content strategy.</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fas fa-ad"></i></div>
+                    <div class="cert-content">
+                        <h3>Google Ads Video Certification</h3>
+                        <p>Expertise in creating and optimizing video advertising campaigns.</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-content">
+                        <h3>Content Marketing Certification</h3>
+                        <p>Proven strategies for creating engaging, audience-focused content.</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-hubspot"></i></div>
+                    <div class="cert-content">
+                        <h3>HubSpot Content Management</h3>
+                        <p>Advanced techniques for content planning, creation and distribution.</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-hootsuite"></i></div>
+                    <div class="cert-content">
+                        <h3>Hootsuite Social Media Marketing</h3>
+                        <p>Certified in managing and optimizing social media campaigns.</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fas fa-film"></i></div>
+                    <div class="cert-content">
+                        <h3>Video Editing Mastery</h3>
+                        <p>LinkedIn Learning certification in advanced video editing techniques.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Collaborate</h2>
+                    <p>I'm currently available for freelance projects and full-time positions. Feel free to reach out for media collaborations, content strategy consultations, or just to say hello!</p>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <a href="mailto:mouradrazgallah01@gmail.com">mouradrazgallah01@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <a href="tel:+2162819908">+216 28199608</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Tunis, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mourad-razgallah-443640171/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/mouradrazgallah/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/mwplrlkz" method="POST">
+                        <div id="formSuccess" class="form-success">Thank you! Your message has been sent successfully.</div>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <div class="error-message">Please enter a subject</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#portfolio">Work</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2025 Mourad Razgallah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-        // Mobile Menu
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
+        
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Video Playback
-        const playButtons = document.querySelectorAll('.play-video');
-        playButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const portfolioItem = button.closest('.portfolio-item');
-                portfolioItem.classList.add('playing');
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
                 
-                const iframe = portfolioItem.querySelector('iframe');
-                if (iframe.src.includes('youtube.com')) {
-                    iframe.src += iframe.src.includes('?') ? '&autoplay=1' : '?autoplay=1';
-                }
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
 
-        // Slider
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        const dotsContainer = document.querySelector('.slider-nav');
-        let currentIndex = 0;
+        // Video Modal
+        const modal = document.getElementById('videoModal');
+        const modalVideo = modal.querySelector('.modal-video');
+        const closeModal = modal.querySelector('.close-modal');
+        const watchButtons = document.querySelectorAll('.watch-video');
 
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('slider-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+        watchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video');
+                modalVideo.src = videoUrl;
+                modal.style.display = 'flex';
+            });
         });
 
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalVideo.src = ''; // Stop video playback
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalVideo.src = '';
+            }
+        });
+
+        // Image Slider
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('.slider-nav');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
         const dots = document.querySelectorAll('.slider-dot');
 
         function updateSlider() {
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         }
 
         function goToSlide(index) {
-            currentIndex = index % slides.length;
-            if (currentIndex < 0) currentIndex = slides.length - 1;
+            currentIndex = (index + slideCount) % slideCount;
             updateSlider();
         }
 
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
 
-        // Auto-slide
-        let interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-        slider.addEventListener('mouseenter', () => clearInterval(interval));
-        slider.addEventListener('mouseleave', () => interval = setInterval(() => goToSlide(currentIndex + 1), 5000));
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
 
-        // Smooth scrolling
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (navLinks.style.display === 'flex') {
+                        navLinks.style.display = 'none';
+                    }
+                }
             });
+        });
+
+        // Form Validation and Submission
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                field.parentElement.classList.remove('error');
+            });
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.parentElement.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            const emailField = contactForm.querySelector('[type="email"]');
+            if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+                emailField.parentElement.classList.add('error');
+                emailField.parentElement.querySelector('.error-message').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        formSuccess.style.display = 'block';
+                        contactForm.reset();
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem sending your message. Please try again later.');
+                });
+            }
+        });
+
+        // Skill bars animation
+        window.addEventListener('scroll', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const aboutSection = document.querySelector('.about');
+            const aboutSectionTop = aboutSection.offsetTop;
+            const aboutSectionHeight = aboutSection.offsetHeight;
+            const scrollPosition = window.pageYOffset;
+            
+            if (scrollPosition > aboutSectionTop - window.innerHeight + aboutSectionHeight / 2) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+                window.removeEventListener('scroll', arguments.callee);
+            }
         });
     </script>
 </body>
