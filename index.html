@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mourad Razgallah | Award-Winning Video Journalist & Social Media Strategist</title>
-    <meta name="description" content="Professional portfolio of Mourad Razgallah, showcasing video journalism projects, social media campaigns, and professional certifications.">
+    <title>Mourad Razgallah | Video Journalist & Social Media Strategist</title>
+    <meta name="description" content="Explore the professional portfolio of Mourad Razgallah, an award-winning video journalist and social media strategist with expertise in video production, documentaries, and digital campaigns.">
+    <meta name="keywords" content="video journalism, social media strategy, documentaries, content creation, Mourad Razgallah">
+    <meta name="author" content="Mourad Razgallah">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
@@ -305,6 +307,19 @@
             transform: scale(1.05);
         }
 
+        .video-intro {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .video-intro iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
         /* Portfolio Section */
         .portfolio {
             background: var(--light);
@@ -335,7 +350,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -657,35 +672,35 @@
             padding: 60px 0;
             background: white;
         }
-        
+
         .slider-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: var(--shadow-lg);
         }
-        
+
         .slider {
             display: flex;
             transition: transform 0.5s ease;
         }
-        
+
         .slide {
             min-width: 100%;
             position: relative;
         }
-        
+
         .slide img {
-    width: 100%;
-    height: auto; /* Allows natural image height */
-    max-height: 500px; /* Limits maximum height */
-    object-fit: contain; /* Shows full image without cropping */
-    margin: 0 auto; /* Centers the image */
-    display: block;
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
         }
-        
+
         .slide-caption {
             position: absolute;
             bottom: 0;
@@ -696,13 +711,13 @@
             padding: 20px;
             text-align: center;
         }
-        
+
         .slider-nav {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
-        
+
         .slider-dot {
             width: 12px;
             height: 12px;
@@ -712,11 +727,11 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
+
         .slider-dot.active {
             background: var(--primary);
         }
-        
+
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -734,36 +749,36 @@
             font-size: 1.2rem;
             transition: var(--transition);
         }
-        
+
         .slider-arrow:hover {
             background: white;
         }
-        
+
         .slider-arrow.prev {
             left: 20px;
         }
-        
+
         .slider-arrow.next {
             right: 20px;
         }
-        
+
         /* Form Validation Styles */
         .form-group.error input,
         .form-group.error textarea {
             border-color: #e74c3c;
         }
-        
+
         .form-group .error-message {
             color: #e74c3c;
             font-size: 0.8rem;
             margin-top: 5px;
             display: none;
         }
-        
+
         .form-group.error .error-message {
             display: block;
         }
-        
+
         .form-success {
             display: none;
             background: #2ecc71;
@@ -916,52 +931,34 @@
         </div>
     </nav>
 
-    <!-- About Section -->
+    <!-- About Section with Video Introduction -->
     <section id="about" class="section about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Crafting Compelling Visual Stories</h2>
-                    <p>With over a decade of experience in video journalism and social media management, I specialize in creating impactful visual content that resonates with audiences and drives engagement.</p>
-                    <p>My expertise spans documentary filmmaking, corporate video production, social media strategy, and digital content creation for global brands and media outlets.</p>
-                    
+                    <h2>Master of Visual Storytelling</h2>
+                    <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience. I excel in creating compelling content that captivates audiences across platforms like Facebook, X, Instagram, and TikTok. My work blends creativity with strategy, driving millions of views and meaningful engagement for brands and media outlets worldwide.</p>
+                    <p>Check out my introduction video below to see how I bring stories to life on social media!</p>
+                    <div class="video-intro">
+                        <iframe src="https://www.youtube.com/embed/YOUR_INTRO_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                    </div>
                     <div class="skills">
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Video Production</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%;"></div>
-                            </div>
+                            <div class="skill-name"><span>Video Production</span><span>95%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Social Media Strategy</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
+                            <div class="skill-name"><span>Social Media Strategy</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Content Marketing</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
+                            <div class="skill-name"><span>Content Marketing</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Video Editing</span>
-                                <span>98%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 98%;"></div>
-                            </div>
+                            <div class="skill-name"><span>Video Editing</span><span>98%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                         </div>
                     </div>
                 </div>
@@ -972,7 +969,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section with 20 Videos -->
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <h2 class="section-title">My Portfolio</h2>
@@ -995,7 +992,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Video 2 -->
                 <div class="portfolio-item" data-category="documentary">
                     <div class="portfolio-img">
@@ -1008,7 +1004,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Video 3 -->
                 <div class="portfolio-item" data-category="video">
                     <div class="portfolio-img">
@@ -1021,7 +1016,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Video 4 -->
                 <div class="portfolio-item" data-category="social">
                     <div class="portfolio-img">
@@ -1034,7 +1028,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Video 5 -->
                 <div class="portfolio-item" data-category="documentary">
                     <div class="portfolio-img">
@@ -1047,7 +1040,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Video 6 -->
                 <div class="portfolio-item" data-category="social">
                     <div class="portfolio-img">
@@ -1060,11 +1052,179 @@
                         </div>
                     </div>
                 </div>
+                <!-- Video 7 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_7/maxresdefault.jpg" alt="Facebook Campaign">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Facebook Campaign</h3>
+                            <p>Boosted brand reach by 500% on Facebook</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_7" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 8 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_8/maxresdefault.jpg" alt="Instagram Reels">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Instagram Reels Series</h3>
+                            <p>Engaging short-form content for a fashion brand</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_8" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 9 -->
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_9/maxresdefault.jpg" alt="Breaking News">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Breaking News Feature</h3>
+                            <p>Live coverage of a major regional event</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_9" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 10 -->
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_10/maxresdefault.jpg" alt="Environmental Doc">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Environmental Documentary</h3>
+                            <p>Exploring climate change impacts in Tunisia</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_10" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 11 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_11/maxresdefault.jpg" alt="X Campaign">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>X Engagement Campaign</h3>
+                            <p>Real-time interaction strategy on X</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_11" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 12 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_12/maxresdefault.jpg" alt="TikTok Challenge">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>TikTok Challenge</h3>
+                            <p>Launched a viral dance challenge for a brand</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_12" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 13 -->
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_13/maxresdefault.jpg" alt="Interview">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Celebrity Interview</h3>
+                            <p>Exclusive talk with a regional influencer</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_13" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 14 -->
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_14/maxresdefault.jpg" alt="Travel Doc">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Travel Documentary</h3>
+                            <p>Journey through Tunisia’s hidden gems</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_14" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 15 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_15/maxresdefault.jpg" alt="IG Live">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Instagram Live Event</h3>
+                            <p>Hosted a live Q&A for a tech startup</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_15" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 16 -->
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_16/maxresdefault.jpg" alt="Corporate Video">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Corporate Promo</h3>
+                            <p>Video for a multinational company launch</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_16" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 17 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_17/maxresdefault.jpg" alt="FB Ad">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Facebook Ad Campaign</h3>
+                            <p>High-conversion video ad for e-commerce</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_17" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 18 -->
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_18/maxresdefault.jpg" alt="History Doc">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>Historical Documentary</h3>
+                            <p>Uncovering ancient ruins in North Africa</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_18" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 19 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_19/maxresdefault.jpg" alt="X Thread">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>X Video Thread</h3>
+                            <p>Engaging storytelling through X posts</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_19" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 20 -->
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_20/maxresdefault.jpg" alt="TikTok Series">
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                            <h3>TikTok Viral Series</h3>
+                            <p>Created a trending challenge that hit 10M views</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_20" target="_blank" class="btn">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Image Slider Section -->
+    <!-- Image Slider Section with 20 Images -->
     <section class="slider-section">
         <div class="container">
             <h2 class="section-title">Infography Work</h2>
@@ -1074,31 +1234,146 @@
                     <div class="slide">
                         <img src="image1.jpg" alt="Infography Project 1">
                         <div class="slide-caption">
-                            <h3>Data Visualization Project</h3>
-                            <p>Interactive infographic showing demographic trends</p>
+                            <h3>Social Media Analytics Dashboard</h3>
+                            <p>Designed a comprehensive dashboard tracking engagement across platforms</p>
                         </div>
                     </div>
                     <div class="slide">
                         <img src="image2.jpg" alt="Infography Project 2">
                         <div class="slide-caption">
-                            <h3>Business Process Infographic</h3>
-                            <p>Visual representation of complex workflow systems</p>
+                            <h3>Content Strategy Flowchart</h3>
+                            <p>Streamlined content creation process for a global brand</p>
                         </div>
                     </div>
                     <div class="slide">
                         <img src="image3.jpg" alt="Infography Project 3">
                         <div class="slide-caption">
-                            <h3>Statistical Report Design</h3>
-                            <p>Annual report visualization for corporate client</p>
+                            <h3>Video Performance Metrics</h3>
+                            <p>Visualized key performance indicators for a viral campaign</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image4.jpg" alt="Infography Project 4">
+                        <div class="slide-caption">
+                            <h3>Facebook Ad Insights</h3>
+                            <p>Analyzed ad performance for a retail client</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image5.jpg" alt="Infography Project 5">
+                        <div class="slide-caption">
+                            <h3>Instagram Growth Map</h3>
+                            <p>Charted follower growth strategies</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image6.jpg" alt="Infography Project 6">
+                        <div class="slide-caption">
+                            <h3>TikTok Engagement Stats</h3>
+                            <p>Visualized trends in short-form video success</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image7.jpg" alt="Infography Project 7">
+                        <div class="slide-caption">
+                            <h3>X Sentiment Analysis</h3>
+                            <p>Mapped audience reactions to a campaign</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image8.jpg" alt="Infography Project 8">
+                        <div class="slide-caption">
+                            <h3>Content Calendar Design</h3>
+                            <p>Planned a year-long social media strategy</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image9.jpg" alt="Infography Project 9">
+                        <div class="slide-caption">
+                            <h3>Video Editing Workflow</h3>
+                            <p>Optimized post-production process</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image10.jpg" alt="Infography Project 10">
+                        <div class="slide-caption">
+                            <h3>Brand Reach Infographic</h3>
+                            <p>Showcased campaign reach across platforms</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image11.jpg" alt="Infography Project 11">
+                        <div class="slide-caption">
+                            <h3>Audience Demographics</h3>
+                            <p>Profiled target audience for a client</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image12.jpg" alt="Infography Project 12">
+                        <div class="slide-caption">
+                            <h3>Social Media ROI</h3>
+                            <p>Calculated return on investment for ads</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image13.jpg" alt="Infography Project 13">
+                        <div class="slide-caption">
+                            <h3>Hashtag Performance</h3>
+                            <p>Tracked hashtag impact on engagement</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image14.jpg" alt="Infography Project 14">
+                        <div class="slide-caption">
+                            <h3>Content Type Breakdown</h3>
+                            <p>Analyzed effectiveness of content formats</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image15.jpg" alt="Infography Project 15">
+                        <div class="slide-caption">
+                            <h3>Posting Schedule</h3>
+                            <p>Optimized posting times for maximum reach</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image16.jpg" alt="Infography Project 16">
+                        <div class="slide-caption">
+                            <h3>Campaign Timeline</h3>
+                            <p>Visualized a multi-platform campaign rollout</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image17.jpg" alt="Infography Project 17">
+                        <div class="slide-caption">
+                            <h3>Engagement Funnel</h3>
+                            <p>Mapped user journey from view to action</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image18.jpg" alt="Infography Project 18">
+                        <div class="slide-caption">
+                            <h3>Competitor Analysis</h3>
+                            <p>Compared brand performance in the market</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image19.jpg" alt="Infography Project 19">
+                        <div class="slide-caption">
+                            <h3>Trend Forecast</h3>
+                            <p>Predicted upcoming social media trends</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image20.jpg" alt="Infography Project 20">
+                        <div class="slide-caption">
+                            <h3>TikTok Trend Analysis</h3>
+                            <p>Infographic breaking down trending content patterns</p>
                         </div>
                     </div>
                 </div>
                 <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
-                <div class="slider-nav">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                </div>
+                <div class="slider-nav"></div>
             </div>
         </div>
     </section>
@@ -1109,54 +1384,42 @@
             <h2 class="section-title">My Certifications</h2>
             <div class="cert-grid">
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fab fa-google"></i>
-                    </div>
+                    <div class="cert-img"><i class="fab fa-google"></i></div>
                     <div class="cert-content">
                         <h3>Google Analytics Certification</h3>
                         <p>Mastered web analytics and data-driven decision making for content strategy.</p>
                     </div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fas fa-ad"></i>
-                    </div>
+                    <div class="cert-img"><i class="fas fa-ad"></i></div>
                     <div class="cert-content">
                         <h3>Google Ads Video Certification</h3>
                         <p>Expertise in creating and optimizing video advertising campaigns.</p>
                     </div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fas fa-certificate"></i>
-                    </div>
+                    <div class="cert-img"><i class="fas fa-certificate"></i></div>
                     <div class="cert-content">
                         <h3>Content Marketing Certification</h3>
                         <p>Proven strategies for creating engaging, audience-focused content.</p>
                     </div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fab fa-hubspot"></i>
-                    </div>
+                    <div class="cert-img"><i class="fab fa-hubspot"></i></div>
                     <div class="cert-content">
                         <h3>HubSpot Content Management</h3>
                         <p>Advanced techniques for content planning, creation and distribution.</p>
                     </div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fab fa-hootsuite"></i>
-                    </div>
+                    <div class="cert-img"><i class="fab fa-hootsuite"></i></div>
                     <div class="cert-content">
                         <h3>Hootsuite Social Media Marketing</h3>
                         <p>Certified in managing and optimizing social media campaigns.</p>
                     </div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <div class="cert-img"><i class="fas fa-film"></i></div>
                     <div class="cert-content">
                         <h3>Video Editing Mastery</h3>
                         <p>LinkedIn Learning certification in advanced video editing techniques.</p>
@@ -1174,72 +1437,54 @@
                 <div class="contact-info">
                     <h2>Let's Collaborate</h2>
                     <p>I'm currently available for freelance projects and full-time positions. Feel free to reach out for media collaborations, content strategy consultations, or just to say hello!</p>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-text">
                             <h3>Email</h3>
                             <a href="mailto:mouradrazgallah01@gmail.com">mouradrazgallah01@gmail.com</a>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-text">
                             <h3>Phone</h3>
                             <a href="tel:+2162819908">+216 28199608</a>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h3>Location</h3>
                             <p>Tunis, Tunisia</p>
                         </div>
                     </div>
-                    
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/mourad-razgallah-443640171/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/mouradrazgallah/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
                 <div class="contact-form">
                     <form id="contactForm" action="https://formspree.io/f/mouradrazgallah01@gmail.com" method="POST">
-                        <div id="formSuccess" class="form-success">
-                            Thank you! Your message has been sent successfully.
-                        </div>
-                        
+                        <div id="formSuccess" class="form-success">Thank you! Your message has been sent successfully.</div>
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                             <div class="error-message">Please enter your name</div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                             <div class="error-message">Please enter a valid email</div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="subject">Subject *</label>
                             <input type="text" id="subject" name="subject" class="form-control" required>
                             <div class="error-message">Please enter a subject</div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" class="form-control"></textarea>
                         </div>
-                        
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -1257,7 +1502,7 @@
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
-            <p class="copyright">© 2023 Mourad Razgallah. All rights reserved.</p>
+            <p class="copyright">© 2025 Mourad Razgallah. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1282,9 +1527,7 @@
         
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterBtns.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
                 
                 const filter = btn.getAttribute('data-filter');
@@ -1302,19 +1545,25 @@
         // Image Slider
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
+        const dotsContainer = document.querySelector('.slider-nav');
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
         let currentIndex = 0;
         const slideCount = slides.length;
 
+        // Dynamically create dots
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.slider-dot');
+
         function updateSlider() {
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         }
 
         function goToSlide(index) {
@@ -1330,19 +1579,11 @@
             goToSlide(currentIndex - 1);
         }
 
-        // Auto slide every 5 seconds
         let slideInterval = setInterval(nextSlide, 5000);
 
-        // Pause on hover
-        slider.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
 
-        slider.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-
-        // Event listeners
         nextBtn.addEventListener('click', () => {
             nextSlide();
             clearInterval(slideInterval);
@@ -1353,14 +1594,6 @@
             prevSlide();
             clearInterval(slideInterval);
             slideInterval = setInterval(nextSlide, 5000);
-        });
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000);
-            });
         });
 
         // Back to Top Button
@@ -1389,7 +1622,6 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     if (navLinks.style.display === 'flex') {
                         navLinks.style.display = 'none';
                     }
@@ -1397,7 +1629,7 @@
             });
         });
 
-        // Form Validation
+        // Form Validation and Submission
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
         
@@ -1407,12 +1639,10 @@
             let isValid = true;
             const requiredFields = contactForm.querySelectorAll('[required]');
             
-            // Reset error states
             requiredFields.forEach(field => {
                 field.parentElement.classList.remove('error');
             });
             
-            // Validate required fields
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     field.parentElement.classList.add('error');
@@ -1420,7 +1650,6 @@
                 }
             });
             
-            // Validate email format
             const emailField = contactForm.querySelector('[type="email"]');
             if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
                 emailField.parentElement.classList.add('error');
@@ -1429,7 +1658,6 @@
             }
             
             if (isValid) {
-                // Submit form using Formspree
                 fetch(contactForm.action, {
                     method: 'POST',
                     body: new FormData(contactForm),
@@ -1454,7 +1682,7 @@
             }
         });
 
-        // Initialize skill bars animation
+        // Skill bars animation
         window.addEventListener('scroll', function() {
             const skillBars = document.querySelectorAll('.skill-progress');
             const aboutSection = document.querySelector('.about');
@@ -1470,8 +1698,6 @@
                         bar.style.width = width;
                     }, 100);
                 });
-                
-                // Remove event listener after animation
                 window.removeEventListener('scroll', arguments.callee);
             }
         });
