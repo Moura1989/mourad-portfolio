@@ -1320,9 +1320,10 @@
                         });
                     */
                 } else if (category === 'facebook') {
-                    // Facebook requires API access; using placeholder for now
-                    // Replace with manual thumbnails or a server-side solution
-                    img.src = `https://via.placeholder.com/112x200?text=Facebook+${videoId}`;
+    if (videoId === '740974928194081') {
+        img.src = 'images/facebook-740974928194081.jpg';
+    } else {
+        img.src = `https://via.placeholder.com/112x200?text=Facebook+${videoId}`;
                 }
             });
         });
