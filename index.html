@@ -1285,44 +1285,28 @@
 
         // Magic Thumbnail Fetching
         document.addEventListener('DOMContentLoaded', () => {
-            const portfolioImages = document.querySelectorAll('.portfolio-img img');
+    const portfolioImages = document.querySelectorAll('.portfolio-img img');
 
-            portfolioImages.forEach(img => {
-                const videoId = img.getAttribute('data-video-id');
-                const category = img.closest('.portfolio-item').getAttribute('data-category');
-                const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
+    portfolioImages.forEach(img => {
+        const videoId = img.getAttribute('data-video-id');
+        const category = img.closest('.portfolio-item').getAttribute('data-category');
+        const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
 
-                if (category === 'youtube') {
-                    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                } else if (category === 'tiktok') {
-                    fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            img.src = data.thumbnail_url || fallbackImg;
-                        })
-                        .catch(() => {
-                            img.src = fallbackImg;
-                        });
-                } else if (category === 'instagram') {
-                    // Instagram embed doesn't directly provide thumbnail via oEmbed without API key
-                    // Using a proxy or manual approach would be ideal, but for simplicity, we'll use a placeholder
-                    // Replace with actual thumbnails manually if desired
-                    img.src = `https://via.placeholder.com/112x200?text=Instagram+${videoId}`;
-                    // Optional: Uncomment below if you have a server proxy to fetch Instagram thumbnails
-                    /*
-                    fetch(`https://api.instagram.com/oembed/?url=https://www.instagram.com/reel/${videoId}/`)
-                        .then(response => response.json())
-                        .then(data => {
-                            img.src = data.thumbnail_url || fallbackImg;
-                        })
-                        .catch(() => {
-                            img.src = fallbackImg;
-                        });
-                    */
-                } else if (category === 'facebook') {
-                    // Facebook requires API access; using placeholder for now
-                    // Replace with manual thumbnails or a server-side solution
-                    img.src = `https://via.placeholder.com/112x200?text=Facebook+${videoId}`;
+        if (category === 'youtube') {
+            img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        } else if (category === 'tiktok') {
+            fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    img.src = data.thumbnail_url || fallbackImg;
+                })
+                .catch(() => {
+                    img.src = fallbackImg;
+                });
+        } else if (category === 'instagram') {
+            img.src = `https://via.placeholder.com/112x200?text=Instagram+${videoId}`;
+        } else if (category === 'facebook') {
+            img.src = `images/facebook-${videoId}.jpg`; // Updated line 
                 }
             });
         });
