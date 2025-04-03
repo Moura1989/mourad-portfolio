@@ -189,13 +189,6 @@
             margin-bottom: 20px;
         }
 
-        .video-intro iframe {
-            width: 100%;
-            height: 315px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
         .skills .skill-item {
             margin-bottom: 15px;
         }
@@ -263,6 +256,11 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hidden */
+        }
+
+        .portfolio-item.active {
+            display: block; /* Show only active category */
         }
 
         .portfolio-img {
@@ -356,7 +354,8 @@
 
         .modal-video {
             width: 100%;
-            height: 960px; /* 9:16 ratio at 540px width */
+            height: auto;
+            aspect-ratio: 9 / 16; /* Default for vertical videos */
             border: none;
         }
 
@@ -623,7 +622,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: var(--primary-color);
+ дверей: var(--primary-color);
             color: var(--white);
             width: 40px;
             height: 40px;
@@ -687,9 +686,9 @@
     <!-- Header/Hero Section -->
     <header>
         <div class="container header-content">
-            <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
+            <img src="https://via.placeholder.com/150" alt="Mourad Razgallah" class="profile-img">
             <h1 class="header-title">Mourad Razgallah</h1>
-            <p class="header-subtitle"> Video Journalist & Social Media Strategist</p>
+            <p class="header-subtitle">Video Journalist & Social Media Strategist</p>
             <div class="header-btns">
                 <a href="#portfolio" class="btn">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -713,7 +712,7 @@
         </div>
     </nav>
 
-    <!-- About Section with Video Introduction -->
+    <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -741,7 +740,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="profile.png" alt="Mourad Razgallah">
+                    <img src="https://via.placeholder.com/300" alt="Mourad Razgallah">
                 </div>
             </div>
         </div>
@@ -752,53 +751,51 @@
         <div class="container">
             <h2 class="section-title">My Portfolio</h2>
             <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <button class="filter-btn" data-filter="facebook">Facebook</button>
+                <button class="filter-btn active" data-filter="facebook">Facebook</button>
                 <button class="filter-btn" data-filter="tiktok">TikTok</button>
-                <button class="filter-btn" data-filter="instagram">Instagram</button>
                 <button class="filter-btn" data-filter="youtube">YouTube</button>
             </div>
             <div class="portfolio-grid">
                 <!-- Facebook Videos (9:16) -->
-                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="images/facebook-240148495092630.jpg" alt="Facebook Video 1" data-video-id="240148495092630">  
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+240148495092630" alt="Facebook Video 1" data-video-id="240148495092630">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F240148495092630%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="images/facebook-1869022863561310.jpg" alt="Facebook Video 2" data-video-id="1869022863561310">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+1869022863561310" alt="Facebook Video 2" data-video-id="1869022863561310">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="images/facebook-2184273081737664.jpg" alt="Facebook Video 3" data-video-id="2184273081737664"> 
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+2184273081737664" alt="Facebook Video 3" data-video-id="2184273081737664">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F2184273081737664%2F&show_text=false&width=267">Watch Video</button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
-                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="images/facebook-1721315035386670.jpg" alt="Facebook Video 4" data-video-id="1721315035386670">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+1721315035386670" alt="Facebook Video 4" data-video-id="1721315035386670">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1721315035386670%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="images/facebook-859467989132065.jpg" alt="Facebook Video Video 5" data-video-id="859467989132065">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+859467989132065" alt="Facebook Video 5" data-video-id="859467989132065">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=267">Watch Video</button>
@@ -838,7 +835,7 @@
                             <p>Two Tunisians Sell Salade Mechouia</p>
                             <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7427944898394950917">Watch Video</button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
@@ -863,71 +860,14 @@
                     </div>
                 </div>
 
-                <!-- Instagram Videos (9:16) -->
-                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Instagram Video 1" data-video-id="DHrhPEAigaP">
-                        <div class="portfolio-overlay">
-                            <i class="fab fa-instagram play-icon"></i>
-                            <h3>Reel Story 1</h3>
-                            <p>A visual tale from Tunis</p>
-                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHrhPEAigaP/embed">Watch Video</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Instagram Video 2" data-video-id="DHqtZMKqgga">
-                        <div class="portfolio-overlay">
-                            <i class="fab fa-instagram play-icon"></i>
-                            <h3>Reel Story 2</h3>
-                            <p>Daily life in Tunisia</p>
-                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHqtZMKqgga/embed">Watch Video</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Instagram Video 3" data-video-id="DHUcCacB9ar">
-                        <div class="portfolio-overlay">
-                            <i class="fab fa-instagram play-icon"></i>
-                            <h3>Reel Story 3</h3>
-                            <p>Cultural highlight</p>
-                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHUcCacB9ar/embed">Watch Video</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Instagram Video 4" data-video-id="DGZGwTSp-zp">
-                        <div class="portfolio-overlay">
-                            <i class="fab fa-instagram play-icon"></i>
-                            <h3>Reel Story 4</h3>
-                            <p>Exploring Tunisian traditions</p>
-                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGZGwTSp-zp/embed">Watch Video</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-                    <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Instagram Video 5" data-video-id="DGEautVgTiY">
-                        <div class="portfolio-overlay">
-                            <i class="fab fa-instagram play-icon"></i>
-                            <h3>Reel Story 5</h3>
-                            <p>Short news clip</p>
-                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGEautVgTiY/embed">Watch Video</button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- YouTube Videos (16:9) -->
                 <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-    <div class="portfolio-img">
-        <img src="https://img.youtube.com/vi/06_Tg6tat84/hqdefault.jpg" alt="YouTube Video 1" data-video-id="06_Tg6tat84">
-        <div class="portfolio-overlay">
-            <i class="fab fa-youtube play-icon"></i>
-            <button class="btn watch-video" data-video="https://www.youtube.com/embed/06_Tg6tat84">Watch Video</button>
-        </div> 
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/06_Tg6tat84/hqdefault.jpg" alt="YouTube Video 1" data-video-id="06_Tg6tat84">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/06_Tg6tat84">Watch Video</button>
+                        </div>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
@@ -978,14 +918,14 @@
                 <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
                 <div class="slider">
                     <div class="slide active">
-                        <img src="image1.jpg" alt="Infography Project 1">
+                        <img src="https://via.placeholder.com/800x450" alt="Infography Project 1">
                         <div class="slide-caption">
                             <h3>North African Football Salaries</h3>
                             <p>Analyzing salaries of North African players in France.</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="image2.jpg" alt="Infography Project 2">
+                        <img src="https://via.placeholder.com/800x450" alt="Infography Project 2">
                         <div class="slide-caption">
                             <h3>Poll Results: Libya 2020</h3>
                             <p>Saif al-Islam Gaddafi voted Person of the Year.</p>
@@ -1154,17 +1094,25 @@
         // Portfolio Filter
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        function showCategory(category) {
+            portfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                item.classList.toggle('active', itemCategory === category);
+            });
+        }
+
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
                 const filter = button.getAttribute('data-filter');
-                portfolioItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    item.style.display = (filter === 'all' || filter === category) ? 'block' : 'none';
-                });
+                showCategory(filter);
             });
         });
+
+        // Show Facebook by default
+        showCategory('facebook');
 
         // Modal Functionality
         const modal = document.getElementById('videoModal');
@@ -1174,7 +1122,9 @@
         watchButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const videoUrl = button.getAttribute('data-video');
+                const aspect = button.closest('.portfolio-item').getAttribute('data-aspect');
                 modalVideo.src = videoUrl;
+                modalVideo.style.aspectRatio = aspect === '16-9' ? '16 / 9' : '9 / 16';
                 modal.style.display = 'flex';
             });
         });
@@ -1188,6 +1138,10 @@
                 modalVideo.src = '';
             }
         });
+        modalVideo.onerror = () => {
+            modal.style.display = 'none';
+            alert('Error loading video. Please try again.');
+        };
 
         // Slider Functionality
         const slides = document.querySelectorAll('.slide');
@@ -1219,6 +1173,12 @@
                 showSlide(currentSlide);
             });
         });
+
+        // Auto-slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
 
         // Back to Top Button
         const backToTop = document.querySelector('.back-to-top');
@@ -1263,33 +1223,32 @@
             }
         });
 
-        // Magic Thumbnail Fetching
+        // Thumbnail Fetching
         document.addEventListener('DOMContentLoaded', () => {
-    const portfolioImages = document.querySelectorAll('.portfolio-img img');
+            const portfolioImages = document.querySelectorAll('.portfolio-img img');
+            portfolioImages.forEach(img => {
+                const videoId = img.getAttribute('data-video-id');
+                const category = img.closest('.portfolio-item').getAttribute('data-category');
+                const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
 
-    portfolioImages.forEach(img => {
-        const videoId = img.getAttribute('data-video-id');
-        const category = img.closest('.portfolio-item').getAttribute('data-category');
-        const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
-
-        if (category === 'youtube') {
-            img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-        } else if (category === 'tiktok') {
-            fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
-                .then(response => response.json())
-                .then(data => {
-                    img.src = data.thumbnail_url || fallbackImg;
-                })
-                .catch(() => {
-                    img.src = fallbackImg;
-                });
-        } else if (category === 'instagram') {
-            img.src = `https://via.placeholder.com/112x200?text=Instagram+${videoId}`;
-        } else if (category === 'facebook') {
-            img.src = `images/facebook-${videoId}.jpg`; // Updated line 
+                if (category === 'youtube') {
+                    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                } else if (category === 'tiktok') {
+                    fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            img.src = data.thumbnail_url || fallbackImg;
+                        })
+                        .catch(() => {
+                            img.src = fallbackImg;
+                        });
+                } else if (category === 'facebook') {
+                    const fbImg = `images/facebook-${videoId}.jpg`;
+                    img.onerror = () => { img.src = fallbackImg; };
+                    img.src = fbImg; // Assumes local images; replace with placeholders if unavailable
                 }
             });
         });
     </script>
 </body>
-</html> 
+</html>
