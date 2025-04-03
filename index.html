@@ -80,7 +80,7 @@
         .portfolio-img {
             position: relative;
             width: 100%;
-            padding-top: 177.78%; /* Default 9:16 aspect ratio for portrait videos */
+            padding-top: 177.78%; /* 9:16 for portrait */
         }
 
         .portfolio-img img {
@@ -144,7 +144,7 @@
             margin-bottom: 10px;
         }
 
-        /* Modal for Video Playback */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -153,11 +153,10 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
+            z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow: auto;
         }
 
         .modal-content {
@@ -171,8 +170,7 @@
 
         .modal-video {
             width: 100%;
-            height: auto;
-            min-height: 500px;
+            height: 600px; /* Fixed height for consistency, adjustable */
             border: none;
         }
 
@@ -196,17 +194,32 @@
             background: rgba(0, 0, 0, 0.8);
         }
 
-        /* Adjust thumbnail aspect ratio based on data attribute */
+        /* Aspect ratio for thumbnails */
         .portfolio-item[data-aspect="16-9"] .portfolio-img {
-            padding-top: 56.25%; /* 16:9 aspect ratio */
+            padding-top: 56.25%; /* 16:9 for YouTube */
         }
 
         .portfolio-item[data-aspect="9-16"] .portfolio-img {
-            padding-top: 177.78%; /* 9:16 aspect ratio */
+            padding-top: 177.78%; /* 9:16 for others */
+        }
+
+        /* Ensure other sections remain visible */
+        .section {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
+    <section id="header" class="section">
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>A collection of my video work across platforms.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <h2 class="section-title">My Portfolio</h2>
@@ -218,15 +231,15 @@
                 <button class="filter-btn" data-filter="youtube">YouTube</button>
             </div>
             <div class="portfolio-grid">
-                <!-- Facebook Videos (9:16) -->
+                <!-- Facebook Videos -->
                 <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/112x200?text=Facebook+Video+1" alt="Facebook Video 1">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <h3>News Update</h3>
-                            <p>Breaking news coverage for Al Arabiya Tunisia</p>
-                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=true&width=267&t=0">Watch Video</button>
+                            <p>Breaking news coverage</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/740974928194081">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -236,8 +249,8 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <h3>Community Story</h3>
-                            <p>Highlighting local initiatives in Tunisia</p>
-                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=true&width=267&t=0">Watch Video</button>
+                            <p>Local initiatives in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/alhadath.Tunis/videos/1869022863561310">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -247,8 +260,8 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
                             <h3>Regional Report</h3>
-                            <p>Latest updates from Al Arabiya Tunisia</p>
-                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F607226045574543%2F&show_text=true&width=267&t=0">Watch Video</button>
+                            <p>Latest updates</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/607226045574543">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -259,7 +272,7 @@
                             <i class="fab fa-facebook-f play-icon"></i>
                             <h3>Special Feature</h3>
                             <p>In-depth news story</p>
-                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1721315035386670%2F&show_text=true&width=267&t=0">Watch Video</button>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/AlArabiyaTunisia/videos/1721315035386670">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -270,20 +283,20 @@
                             <i class="fab fa-facebook-f play-icon"></i>
                             <h3>Daily Digest</h3>
                             <p>Quick news roundup</p>
-                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=true&width=380&t=0">Watch Video</button>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/alhadath.Tunis/videos/859467989132065">Watch Video</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- TikTok Videos (9:16) -->
+                <!-- TikTok Videos -->
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/112x200?text=TikTok+Video+1" alt="TikTok Video 1">
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Traditional Olive Press</h3>
-                            <p>70-year-old Tunisian keeps tradition alive</p>
-                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/v2/7437258133514226999">Watch Video</button>
+                            <p>70-year-old Tunisian tradition</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7437258133514226999">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -293,8 +306,8 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Respect for Teachers</h3>
-                            <p>Students’ initiatives to honor educators</p>
-                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/v2/7445432285534506246">Watch Video</button>
+                            <p>Students honor educators</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7445432285534506246">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -304,8 +317,8 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Traffic Officer Hero</h3>
-                            <p>Protecting a woman and her granddaughter</p>
-                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/v2/7434822840416849207">Watch Video</button>
+                            <p>Protecting a woman and granddaughter</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7434822840416849207">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -315,8 +328,8 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Rescue at Sea</h3>
-                            <p>Fishermen save a migrant off Kelibia</p>
-                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/v2/7448657913800871174">Watch Video</button>
+                            <p>Fishermen save a migrant</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7448657913800871174">Watch Video</button>
                         </div>
                     </div>
                 </div>
@@ -326,13 +339,13 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Etna Eruption</h3>
-                            <p>Volcanic activity’s impact on Tunisia</p>
-                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/v2/7390610100265831685">Watch Video</button>
+                            <p>Volcanic impact on Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7390610100265831685">Watch Video</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Instagram Videos (9:16) -->
+                <!-- Instagram Videos -->
                 <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/112x200?text=Instagram+Video+1" alt="Instagram Video 1">
@@ -372,7 +385,7 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-instagram play-icon"></i>
                             <h3>Reel Story 4</h3>
-                            <p>Exploring Tunisian traditions</p>
+                            <p>Exploring traditions</p>
                             <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGZGwTSp-zp/embed">Watch Video</button>
                         </div>
                     </div>
@@ -389,14 +402,14 @@
                     </div>
                 </div>
 
-                <!-- YouTube Videos (16:9) - Placeholders -->
+                <!-- YouTube Videos (Placeholders) -->
                 <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/356x200?text=YouTube+Video+1" alt="YouTube Video 1">
                         <div class="portfolio-overlay">
                             <i class="fab fa-youtube play-icon"></i>
                             <h3>Documentary Feature</h3>
-                            <p>In-depth look at a social issue</p>
+                            <p>Social issue exploration</p>
                             <button class="btn watch-video" data-video="https://www.youtube.com/embed/_Cbf-w8psAU">Watch Video</button>
                         </div>
                     </div>
@@ -418,7 +431,7 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-youtube play-icon"></i>
                             <h3>Interview</h3>
-                            <p>Local expert discussion</p>
+                            <p>Expert discussion</p>
                             <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_3">Watch Video</button>
                         </div>
                     </div>
@@ -429,7 +442,7 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-youtube play-icon"></i>
                             <h3>Event Coverage</h3>
-                            <p>Live event highlights</p>
+                            <p>Live highlights</p>
                             <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_4">Watch Video</button>
                         </div>
                     </div>
@@ -440,7 +453,7 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-youtube play-icon"></i>
                             <h3>Explainer Video</h3>
-                            <p>Breaking down complex news</p>
+                            <p>Complex news breakdown</p>
                             <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_5">Watch Video</button>
                         </div>
                     </div>
@@ -449,10 +462,27 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>I’m a video content creator showcasing stories from Tunisia across social media platforms.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p>Get in touch at example@email.com</p>
+        </div>
+    </section>
+
     <!-- Video Modal -->
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <button class="close-modal">×</button>
+            <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -480,64 +510,35 @@
 
         // Modal functionality
         const modal = document.getElementById('videoModal');
-        const modalContent = document.querySelector('.modal-content');
+        const modalVideo = document.querySelector('.modal-video');
         const watchButtons = document.querySelectorAll('.watch-video');
         const closeModal = document.querySelector('.close-modal');
 
         watchButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const videoUrl = button.getAttribute('data-video');
+                let videoUrl = button.getAttribute('data-video');
                 const category = button.closest('.portfolio-item').getAttribute('data-category');
 
-                // Remove existing iframe or TikTok embed
-                modalContent.innerHTML = '<button class="close-modal">×</button>';
-
-                if (category === 'tiktok') {
-                    // Create TikTok embed dynamically
-                    const videoId = videoUrl.split('/').pop();
-                    const blockquote = document.createElement('blockquote');
-                    blockquote.className = 'tiktok-embed';
-                    blockquote.setAttribute('cite', `https://www.tiktok.com/@alhadath.tunisia/video/${videoId}`);
-                    blockquote.setAttribute('data-video-id', videoId);
-                    blockquote.style.maxWidth = '605px';
-                    blockquote.style.minWidth = '325px';
-                    modalContent.appendChild(blockquote);
-
-                    // Load TikTok embed script
-                    const script = document.createElement('script');
-                    script.src = 'https://www.tiktok.com/embed.js';
-                    script.async = true;
-                    modalContent.appendChild(script);
-                } else {
-                    // Use iframe for Facebook, Instagram, YouTube
-                    const iframe = document.createElement('iframe');
-                    iframe.className = 'modal-video';
-                    iframe.src = videoUrl;
-                    iframe.frameBorder = '0';
-                    iframe.allowFullscreen = true;
-                    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
-                    modalContent.appendChild(iframe);
+                // Adjust URL based on platform
+                if (category === 'facebook') {
+                    const videoId = videoUrl.split('/videos/')[1];
+                    videoUrl = `https://www.facebook.com/video/embed?video_id=${videoId}`;
                 }
 
+                modalVideo.src = videoUrl;
                 modal.style.display = 'flex';
-                // Reattach close event to new button
-                modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
             });
         });
 
-        function closeModalHandler() {
+        closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
-            modalContent.innerHTML = '<button class="close-modal">×</button>'; // Reset content
-            modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
-        }
-
-        closeModal.addEventListener('click', closeModalHandler);
+            modalVideo.src = ''; // Stop playback
+        });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
-                modalContent.innerHTML = '<button class="close-modal">×</button>'; // Reset content
-                modalContent.querySelector('.close-modal').addEventListener('click', closeModalHandler);
+                modalVideo.src = ''; // Stop playback
             }
         });
     </script>
