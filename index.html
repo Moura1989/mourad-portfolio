@@ -12,54 +12,674 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-       .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff6f61;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --white: #fff;
+            --transition: all 0.3s ease;
+        }
 
-.modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 540px; /* Matches typical embed width */
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.modal-video {
-    width: 100%;
-    height: 960px; /* 9:16 ratio at 540px width */
-    border: none;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
 
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: var(--transition);
-    z-index: 10;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.close-modal:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+            border-color: var(--secondary-color);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid var(--white);
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .header-btns .btn {
+            margin: 0 10px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .video-intro iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skills .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            background: #ddd;
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .skill-progress {
+            background: var(--secondary-color);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-filter {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-img {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%; /* 9:16 aspect ratio */
+        }
+
+        .portfolio-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-overlay .btn {
+            background: var(--primary-color);
+        }
+
+        .portfolio-overlay .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .play-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item[data-aspect="16-9"] .portfolio-img {
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 540px;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: 960px; /* 9:16 ratio at 540px width */
+            border: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Slider Section */
+        .slider-section {
+            background: var(--white);
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slider-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slider-nav span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .slider-nav span.active {
+            background: var(--primary-color);
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cert-img {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .cert-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info,
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text a,
+        .contact-text p {
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-success {
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            display: none;
+            transition: var(--transition);
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
@@ -80,7 +700,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary-color);">.</span></a>
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
                 <a href="#portfolio">Portfolio</a>
@@ -103,7 +723,7 @@
                     <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience. I excel in creating compelling content that captivates audiences across platforms like Facebook, X, Instagram, and TikTok. My work blends creativity with strategy, driving millions of views and meaningful engagement for brands and media outlets worldwide.</p>
                     <p>Check out my introduction video below to see how I bring stories to life on social media!</p>
                     <div class="video-intro">
-                        <iframe src="https://www.youtube.com/embed/YOUR_INTRO_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/_Cbf-w8psAU" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="skills">
                         <div class="skill-item">
@@ -125,7 +745,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="profile.png" alt="Mourad Razgallah" class="profile-img">
+                    <img src="profile.png" alt="Mourad Razgallah">
                 </div>
             </div>
         </div>
@@ -143,234 +763,235 @@
                 <button class="filter-btn" data-filter="youtube">YouTube</button>
             </div>
             <div class="portfolio-grid">
-    <!-- Facebook Videos (9:16) -->
-    <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Facebook+Video+1" alt="Facebook Video 1">
-            <div class="portfolio-overlay">
-                <i class="fab fa-facebook-f play-icon"></i>
-                <h3>News Update</h3>
-                <p>Breaking news coverage for Al Arabiya Tunisia</p>
-                <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false&width=267">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Facebook+Video+2" alt="Facebook Video 2">
-            <div class="portfolio-overlay">
-                <i class="fab fa-facebook-f play-icon"></i>
-                <h3>Community Story</h3>
-                <p>Highlighting local initiatives in Tunisia</p>
-                <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=false&width=267">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Facebook+Video+3" alt="Facebook Video 3">
-            <div class="portfolio-overlay">
-                <i class="fab fa-facebook-f play-icon"></i>
-                <h3>Regional Report</h3>
-                <p>Latest updates from Al Arabiya Tunisia</p>
-                <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F607226045574543%2F&show_text=false&width=267">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Facebook+Video+4" alt="Facebook Video 4">
-            <div class="portfolio-overlay">
-                <i class="fab fa-facebook-f play-icon"></i>
-                <h3>Special Feature</h3>
-                <p>In-depth news story</p>
-                <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1721315035386670%2F&show_text=false&width=267">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Facebook+Video+5" alt="Facebook Video 5">
-            <div class="portfolio-overlay">
-                <i class="fab fa-facebook-f play-icon"></i>
-                <h3>Daily Digest</h3>
-                <p>Quick news roundup</p>
-                <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=267">Watch Video</button>
-            </div>
-        </div>
-    </div>
+                <!-- Facebook Videos (9:16) -->
+                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+Video+1" alt="Facebook Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>News Update</h3>
+                            <p>Breaking news coverage for Al Arabiya Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F740974928194081%2F&show_text=false&width=267">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+Video+2" alt="Facebook Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Community Story</h3>
+                            <p>Highlighting local initiatives in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=false&width=267">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+Video+3" alt="Facebook Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Regional Report</h3>
+                            <p>Latest updates from Al Arabiya Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F607226045574543%2F&show_text=false&width=267">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+Video+4" alt="Facebook Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Special Feature</h3>
+                            <p>In-depth news story</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1721315035386670%2F&show_text=false&width=267">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+Video+5" alt="Facebook Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Daily Digest</h3>
+                            <p>Quick news roundup</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=267">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- TikTok Videos (9:16) -->
-    <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=TikTok+Video+1" alt="TikTok Video 1">
-            <div class="portfolio-overlay">
-                <i class="fab fa-tiktok play-icon"></i>
-                <h3>Traditional Olive Press</h3>
-                <p>70-year-old Tunisian keeps tradition alive</p>
-                <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7437258133514226999">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=TikTok+Video+2" alt="TikTok Video 2">
-            <div class="portfolio-overlay">
-                <i class="fab fa-tiktok play-icon"></i>
-                <h3>Respect for Teachers</h3>
-                <p>Students’ initiatives to honor educators</p>
-                <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7445432285534506246">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=TikTok+Video+3" alt="TikTok Video 3">
-            <div class="portfolio-overlay">
-                <i class="fab fa-tiktok play-icon"></i>
-                <h3>Traffic Officer Hero</h3>
-                <p>Protecting a woman and her granddaughter</p>
-                <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7434822840416849207">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=TikTok+Video+4" alt="TikTok Video 4">
-            <div class="portfolio-overlay">
-                <i class="fab fa-tiktok play-icon"></i>
-                <h3>Rescue at Sea</h3>
-                <p>Fishermen save a migrant off Kelibia</p>
-                <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7448657913800871174">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=TikTok+Video+5" alt="TikTok Video 5">
-            <div class="portfolio-overlay">
-                <i class="fab fa-tiktok play-icon"></i>
-                <h3>Etna Eruption</h3>
-                <p>Volcanic activity’s impact on Tunisia</p>
-                <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7390610100265831685">Watch Video</button>
-            </div>
-        </div>
-    </div>
+                <!-- TikTok Videos (9:16) -->
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+Video+1" alt="TikTok Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Traditional Olive Press</h3>
+                            <p>70-year-old Tunisian keeps tradition alive</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7437258133514226999">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+Video+2" alt="TikTok Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Respect for Teachers</h3>
+                            <p>Students’ initiatives to honor educators</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7445432285534506246">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+Video+3" alt="TikTok Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Traffic Officer Hero</h3>
+                            <p>Protecting a woman and her granddaughter</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7434822840416849207">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+Video+4" alt="TikTok Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Rescue at Sea</h3>
+                            <p>Fishermen save a migrant off Kelibia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7448657913800871174">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+Video+5" alt="TikTok Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Etna Eruption</h3>
+                            <p>Volcanic activity’s impact on Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7390610100265831685">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Instagram Videos (9:16) -->
-    <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Instagram+Video+1" alt="Instagram Video 1">
-            <div class="portfolio-overlay">
-                <i class="fab fa-instagram play-icon"></i>
-                <h3>Reel Story 1</h3>
-                <p>A visual tale from Tunis</p>
-                <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHrhPEAigaP/embed">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Instagram+Video+2" alt="Instagram Video 2">
-            <div class="portfolio-overlay">
-                <i class="fab fa-instagram play-icon"></i>
-                <h3>Reel Story 2</h3>
-                <p>Daily life in Tunisia</p>
-                <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHqtZMKqgga/embed">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Instagram+Video+3" alt="Instagram Video 3">
-            <div class="portfolio-overlay">
-                <i class="fab fa-instagram play-icon"></i>
-                <h3>Reel Story 3</h3>
-                <p>Cultural highlight</p>
-                <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHUcCacB9ar/embed">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Instagram+Video+4" alt="Instagram Video 4">
-            <div class="portfolio-overlay">
-                <i class="fab fa-instagram play-icon"></i>
-                <h3>Reel Story 4</h3>
-                <p>Exploring Tunisian traditions</p>
-                <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGZGwTSp-zp/embed">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/112x200?text=Instagram+Video+5" alt="Instagram Video 5">
-            <div class="portfolio-overlay">
-                <i class="fab fa-instagram play-icon"></i>
-                <h3>Reel Story 5</h3>
-                <p>Short news clip</p>
-                <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGEautVgTiY/embed">Watch Video</button>
-            </div>
-        </div>
-    </div>
+                <!-- Instagram Videos (9:16) -->
+                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Instagram+Video+1" alt="Instagram Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story 1</h3>
+                            <p>A visual tale from Tunis</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHrhPEAigaP/embed">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Instagram+Video+2" alt="Instagram Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story 2</h3>
+                            <p>Daily life in Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHqtZMKqgga/embed">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Instagram+Video+3" alt="Instagram Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story 3</h3>
+                            <p>Cultural highlight</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DHUcCacB9ar/embed">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Instagram+Video+4" alt="Instagram Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story 4</h3>
+                            <p>Exploring Tunisian traditions</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGZGwTSp-zp/embed">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="instagram" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Instagram+Video+5" alt="Instagram Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-instagram play-icon"></i>
+                            <h3>Reel Story 5</h3>
+                            <p>Short news clip</p>
+                            <button class="btn watch-video" data-video="https://www.instagram.com/reel/DGEautVgTiY/embed">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- YouTube Videos (16:9) - Placeholders -->
-    <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/356x200?text=YouTube+Video+1" alt="YouTube Video 1">
-            <div class="portfolio-overlay">
-                <i class="fab fa-youtube play-icon"></i>
-                <h3>Documentary Feature</h3>
-                <p>In-depth look at a social issue</p>
-                <button class="btn watch-video" data-video="https://www.youtube.com/embed/_Cbf-w8psAU">Watch Video</button>
+                <!-- YouTube Videos (16:9) -->
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/356x200?text=YouTube+Video+1" alt="YouTube Video 1">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Documentary Feature</h3>
+                            <p>In-depth look at a social issue</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/_Cbf-w8psAU">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/356x200?text=YouTube+Video+2" alt="YouTube Video 2">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>News Recap</h3>
+                            <p>Weekly summary</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_2">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/356x200?text=YouTube+Video+3" alt="YouTube Video 3">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Interview</h3>
+                            <p>Local expert discussion</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_3">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/356x200?text=YouTube+Video+4" alt="YouTube Video 4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Event Coverage</h3>
+                            <p>Live event highlights</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_4">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/356x200?text=YouTube+Video+5" alt="YouTube Video 5">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Explainer Video</h3>
+                            <p>Breaking down complex news</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_5">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/356x200?text=YouTube+Video+2" alt="YouTube Video 2">
-            <div class="portfolio-overlay">
-                <i class="fab fa-youtube play-icon"></i>
-                <h3>News Recap</h3>
-                <p>Weekly summary</p>
-                <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_2">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/356x200?text=YouTube+Video+3" alt="YouTube Video 3">
-            <div class="portfolio-overlay">
-                <i class="fab fa-youtube play-icon"></i>
-                <h3>Interview</h3>
-                <p>Local expert discussion</p>
-                <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_3">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/356x200?text=YouTube+Video+4" alt="YouTube Video 4">
-            <div class="portfolio-overlay">
-                <i class="fab fa-youtube play-icon"></i>
-                <h3>Event Coverage</h3>
-                <p>Live event highlights</p>
-                <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_4">Watch Video</button>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
-        <div class="portfolio-img">
-            <img src="https://via.placeholder.com/356x200?text=YouTube+Video+5" alt="YouTube Video 5">
-            <div class="portfolio-overlay">
-                <i class="fab fa-youtube play-icon"></i>
-                <h3>Explainer Video</h3>
-                <p>Breaking down complex news</p>
-                <button class="btn watch-video" data-video="https://www.youtube.com/embed/VIDEO_ID_5">Watch Video</button>
-            </div>
-        </div>
-    </div>
-</div>
     </section>
 
     <!-- Image Slider Section -->
@@ -380,7 +1001,7 @@
             <div class="slider-container">
                 <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
                 <div class="slider">
-                    <div class="slide">
+                    <div class="slide active">
                         <img src="image1.jpg" alt="Infography Project 1">
                         <div class="slide-caption">
                             <h3>Social Media Analytics Dashboard</h3>
@@ -394,10 +1015,12 @@
                             <p>Streamlined content creation process for a global brand</p>
                         </div>
                     </div>
-                    <!-- Add remaining slides as needed -->
                 </div>
                 <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
-                <div class="slider-nav"></div>
+                <div class="slider-nav">
+                    <span class="active"></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </section>
@@ -519,7 +1142,7 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <a href="#" class="logo">Mourad<span style="color: var(--secondary);">.</span></a>
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary-color);">.</span></a>
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#portfolio">Work</a>
@@ -537,39 +1160,132 @@
 
     <!-- Video Modal -->
     <div id="videoModal" class="modal">
-    <div class="modal-content">
-        <button class="close-modal">×</button>
-        <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
+        <div class="modal-content">
+            <button class="close-modal">×</button>
+            <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
-</div>
 
     <!-- JavaScript -->
     <script>
-        // Modal functionality
-const modal = document.getElementById('videoModal');
-const modalVideo = document.querySelector('.modal-video');
-const watchButtons = document.querySelectorAll('.watch-video');
-const closeModal = document.querySelector('.close-modal');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-watchButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const videoUrl = button.getAttribute('data-video');
-        modalVideo.src = videoUrl;
-        modal.style.display = 'flex';
-    });
-});
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    item.style.display = (filter === 'all' || filter === category) ? 'block' : 'none';
+                });
+            });
+        });
 
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    modalVideo.src = ''; // Stop video playback
-});
+        // Modal Functionality
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.querySelector('.modal-video');
+        const watchButtons = document.querySelectorAll('.watch-video');
+        const closeModal = document.querySelector('.close-modal');
+        watchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video');
+                modalVideo.src = videoUrl;
+                modal.style.display = 'flex';
+            });
+        });
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalVideo.src = '';
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalVideo.src = '';
+            }
+        });
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        modalVideo.src = ''; // Stop video playback
-    }
-});
+        // Slider Functionality
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const navDots = document.querySelectorAll('.slider-nav span');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                navDots[i].classList.toggle('active', i === index);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        // Form Validation and Submission
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const subject = document.getElementById('subject');
+            let isValid = true;
+
+            [name, email, subject].forEach(input => {
+                const error = input.nextElementSibling;
+                if (!input.value.trim()) {
+                    error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    error.style.display = 'none';
+                }
+            });
+
+            if (isValid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('formSuccess').style.display = 'block';
+                        form.reset();
+                        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 3000);
+                    }
+                });
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.nextElementSibling.textContent = 'Please enter a valid email';
+                email.nextElementSibling.style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>
