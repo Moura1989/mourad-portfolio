@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mourad Razgallah | Senior Digital Content Producer</title>
-    <meta name="description" content="Mourad Razgallah: Senior Digital Content Producer and Social Media Strategist with 10+ years in video journalism and digital campaigns.">
-    <meta name="keywords" content="social media strategist, video production, digital content, SEO, Google Analytics, Mourad Razgallah, video journalism">
+    <title>Mourad Razgallah | Video Journalist & Social Media Strategist</title>
+    <meta name="description" content="Explore the professional portfolio of Mourad Razgallah, an award-winning video journalist and social media strategist with expertise in video production, documentaries, and digital campaigns.">
+    <meta name="keywords" content="video journalism, social media strategy, documentaries, content creation, Mourad Razgallah">
     <meta name="author" content="Mourad Razgallah">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <style>
         :root {
             --primary-color: #007bff;
-            --secondary-color: #ff8a65;
+            --secondary-color: #ff6f61;
             --text-color: #333;
             --bg-color: #f4f4f4;
             --white: #fff;
@@ -47,11 +47,10 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             text-align: center;
             margin-bottom: 40px;
             color: var(--primary-color);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .btn {
@@ -63,7 +62,6 @@
             border-radius: 5px;
             transition: var(--transition);
             font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
@@ -82,28 +80,9 @@
             border-color: var(--secondary-color);
         }
 
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-            transition: opacity 0.5s;
-        }
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
         /* Header */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080?text=Header+Background');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header-bg.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -277,11 +256,11 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: none;
+            display: none; /* Initially hidden */
         }
 
         .portfolio-item.active {
-            display: block;
+            display: block; /* Show only active category */
         }
 
         .portfolio-img {
@@ -376,7 +355,7 @@
         .modal-video {
             width: 100%;
             height: auto;
-            aspect-ratio: 9 / 16;
+            aspect-ratio: 9 / 16; /* Default for vertical videos */
             border: none;
         }
 
@@ -393,6 +372,7 @@
             border-radius: 50%;
             cursor: pointer;
             transition: var(--transition);
+            z-index: 10;
         }
 
         .close-modal:hover {
@@ -401,32 +381,33 @@
 
         /* Slider Section */
         .slider-section {
-            padding: 60px 0;
+            background: var(--white);
         }
 
         .slider-container {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            overflow: hidden;
         }
 
         .slider {
-            display: flex;
-            transition: transform 0.5s ease;
+            overflow: hidden;
+            border-radius: 10px;
         }
 
         .slide {
-            min-width: 100%;
+            display: none;
             position: relative;
+        }
+
+        .slide.active {
+            display: block;
         }
 
         .slide img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            object-fit: cover;
-            aspect-ratio: 16 / 9;
         }
 
         .slide-caption {
@@ -435,46 +416,29 @@
             left: 20px;
             background: rgba(0, 0, 0, 0.7);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 15px;
             border-radius: 5px;
-        }
-
-        .slide-caption h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .slide-caption p {
-            font-size: 0.9rem;
         }
 
         .slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--primary-color);
+            background: rgba(0, 0, 0, 0.5);
             color: var(--white);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            border: none;
+            padding: 10px;
             cursor: pointer;
-            transition: var(--transition);
+            font-size: 1.5rem;
             z-index: 10;
         }
 
-        .slider-arrow:hover {
-            background: var(--secondary-color);
-        }
-
         .prev {
-            left: -50px;
+            left: 10px;
         }
 
         .next {
-            right: -50px;
+            right: 10px;
         }
 
         .slider-nav {
@@ -490,14 +454,13 @@
             border-radius: 50%;
             margin: 0 5px;
             cursor: pointer;
-            transition: var(--transition);
         }
 
         .slider-nav span.active {
             background: var(--primary-color);
         }
 
-        /* Achievements & Certifications Sections */
+        /* Certifications Section */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -523,14 +486,6 @@
             font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--primary-color);
-        }
-
-        .cert-content p {
-            margin-bottom: 10px;
-        }
-
-        .cert-content small {
-            color: #666;
         }
 
         /* Contact Section */
@@ -724,30 +679,19 @@
             .portfolio-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
-
-            .slider-arrow.prev {
-                left: 10px;
-            }
-
-            .slider-arrow.next {
-                right: 10px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader"><i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i></div>
-
     <!-- Header/Hero Section -->
     <header>
         <div class="container header-content">
-            <img src="https://via.placeholder.com/150?text=Profile+Photo" alt="Mourad Razgallah, Senior Digital Content Producer" class="profile-img">
+            <img src="https://via.placeholder.com/150" alt="Mourad Razgallah" class="profile-img">
             <h1 class="header-title">Mourad Razgallah</h1>
-            <p class="header-subtitle">Senior Digital Content Producer, Social Media Strategist & Video Journalist</p>
+            <p class="header-subtitle">Video Journalist & Social Media Strategist</p>
             <div class="header-btns">
-                <a href="#portfolio" class="btn" aria-label="View Portfolio">View My Work</a>
-                <a href="#contact" class="btn btn-secondary" aria-label="Contact Me">Get In Touch</a>
+                <a href="#portfolio" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
     </header>
@@ -759,11 +703,10 @@
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#achievements">Achievements</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -775,8 +718,8 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Master of Data-Driven Storytelling</h2>
-                    <p>I’m Mourad Razgallah, a Senior Digital Content Producer and Social Media Strategist with over 10 years of experience, delivering impactful content across Facebook, Instagram, TikTok, X, and YouTube. At Al Arabiya TV & Al Hadath TV, I boosted audience engagement by 35%+ and launched a record-breaking video series on regional issues. Skilled in video production (Adobe Premiere Pro, Final Cut Pro), analytics (Google Analytics, Crowdtangle), and SEO, I blend creativity and strategy to drive results.</p>
+                    <h2>Master of Visual Storytelling</h2>
+                    <p>I'm Mourad Razgallah, a passionate video journalist and social media strategist with over 10 years of experience. I excel in creating compelling content that captivates audiences across platforms like Facebook, X, Instagram, and TikTok. My work blends creativity with strategy, driving millions of views and meaningful engagement for brands and media outlets worldwide.</p>
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-name"><span>Video Production</span><span>95%</span></div>
@@ -787,17 +730,17 @@
                             <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name"><span>Graphic Design & Photo Editing</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            <div class="skill-name"><span>Content Marketing</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name"><span>SEO & Content Marketing</span><span>85%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            <div class="skill-name"><span>Video Editing</span><span>98%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/400x400?text=Profile+Image" alt="Mourad Razgallah working on digital content">
+                    <img src="profile.png" alt="Mourad Razgallah">
                 </div>
             </div>
         </div>
@@ -816,55 +759,45 @@
                 <!-- Facebook Videos (9:16) -->
                 <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Facebook+240148495092630" alt="Underreported Regional Issues" data-video-id="240148495092630">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+240148495092630" alt="Facebook Video 1" data-video-id="240148495092630">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
-                            <h3>Underreported Regional Issues</h3>
-                            <p>Part of a series that became Al Arabiya’s most-watched segment.</p>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F240148495092630%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Facebook+1869022863561310" alt="Tunisia Event Coverage" data-video-id="1869022863561310">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+1869022863561310" alt="Facebook Video 2" data-video-id="1869022863561310">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
-                            <h3>Tunisia Event Coverage</h3>
-                            <p>Exclusive report boosting engagement by 40%.</p>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F1869022863561310%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Facebook+609681748659538" alt="Social Media Campaign" data-video-id="609681748659538">
+                        <img src="https://via.placeholder.com/112x200?text=facebook-609681748659538" alt="Facebook Video 3" data-video-id="609681748659538">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
-                            <h3>Social Media Campaign</h3>
-                            <p>High-impact campaign video.</p>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F609681748659538%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Facebook+1458828668164741" alt="Mauritania Exclusive" data-video-id="1458828668164741">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+1458828668164741" alt="Facebook Video 4" data-video-id="1458828668164741"> 
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
-                            <h3>Mauritania Exclusive</h3>
-                            <p>Coverage driving 50% engagement increase.</p>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1458828668164741%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Facebook+859467989132065" alt="Social Media Series" data-video-id="859467989132065">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+859467989132065" alt="Facebook Video 5" data-video-id="859467989132065">
                         <div class="portfolio-overlay">
                             <i class="fab fa-facebook-f play-icon"></i>
-                            <h3>Social Media Series</h3>
-                            <p>Boosted post reach by 30%.</p>
                             <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=267">Watch Video</button>
                         </div>
                     </div>
@@ -873,26 +806,519 @@
                 <!-- TikTok Videos (9:16) -->
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=TikTok+743725 used8133514226999" alt="Traditional Olive Press" data-video-id="7437258133514226999">
+                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="TikTok Video 1" data-video-id="7437258133514226999">
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Traditional Olive Press</h3>
-                            <p>70-year-old Tunisian keeps tradition alive.</p>
+                            <p>70-year-old Tunisian keeps tradition alive</p>
                             <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7437258133514226999">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=TikTok+7445432285534506246" alt="Respect for Teachers" data-video-id="7445432285534506246">
+                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="TikTok Video 2" data-video-id="7445432285534506246">
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Respect for Teachers</h3>
-                            <p>Students’ initiatives to honor educators.</p>
+                            <p>Students’ initiatives to honor educators</p>
                             <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7445432285534506246">Watch Video</button>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com
+                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="TikTok Video 3" data-video-id="7427944898394950917">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Street Stories</h3>
+                            <p>Two Tunisians Sell Salade Mechouia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7427944898394950917">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="TikTok Video 4" data-video-id="7439012279183510839">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Successful Stories</h3>
+                            <p>Breaking Tradition: Sousse’s First Female Barber for Men</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7439012279183510839">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="TikTok Video 5" data-video-id="7390610100265831685">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Etna Eruption</h3>
+                            <p>Volcanic activity’s impact on Tunisia</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7390610100265831685">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube Videos (16:9) -->
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/06_Tg6tat84/hqdefault.jpg" alt="YouTube Video 1" data-video-id="06_Tg6tat84">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/06_Tg6tat84">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/6yV5yGqKDiw/hqdefault.jpg" alt="YouTube Video 2" data-video-id="6yV5yGqKDiw">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/6yV5yGqKDiw">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/H353UDtz71E/hqdefault.jpg" alt="YouTube Video 3" data-video-id="H353UDtz71E">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/H353UDtz71E">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/0zb1IgnkNsY/hqdefault.jpg" alt="YouTube Video 4" data-video-id="0zb1IgnkNsY">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/0zb1IgnkNsY">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/XBVmTjVPNT4/hqdefault.jpg" alt="YouTube Video 5" data-video-id="XBVmTjVPNT4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/XBVmTjVPNT4">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section -->
+    <section class="slider-section">
+        <div class="container">
+            <h2 class="section-title">Infography Work</h2>
+            <div class="slider-container">
+                <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="image1.jpg" alt="Infography Project 1">
+                        <div class="slide-caption">
+                            <h3>North African Football Salaries</h3>
+                            <p>Analyzing salaries of North African players in France.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image2.jpg" alt="Infography Project 2">
+                        <div class="slide-caption">
+                            <h3>Poll Results: Libya 2020</h3>
+                            <p>Saif al-Islam Gaddafi voted Person of the Year.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image3.jpg" alt="Infography Project 3">
+                        <div class="slide-caption">
+                            <h3>Infography Project 3</h3>
+                            <p>Description of Infography Project 3.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image4.jpg" alt="Infography Project 4">
+                        <div class="slide-caption">
+                            <h3>Infography Project 4</h3>
+                            <p>Description of Infography Project 4.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image5.jpg" alt="Infography Project 5">
+                        <div class="slide-caption">
+                            <h3>Infography Project 5</h3>
+                            <p>Description of Infography Project 5.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="image6.jpg" alt="Infography Project 6">
+                        <div class="slide-caption">
+                            <h3>Infography Project 6</h3>
+                            <p>Description of Infography Project 6.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                <div class="slider-nav">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="section certifications">
+    <div class="container">
+        <h2 class="section-title">My Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                <div class="cert-content">
+                    <h3>Advertising on LinkedIn</h3>
+                    <p>Expertise in leveraging LinkedIn for effective advertising campaigns.</p>
+                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                    <a href="https://www.linkedin.com/learning/certificates/be2e62c1d0e9873b35267ed241c170d10b220f80bbd0fa69debe2ee2e924589b" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-hubspot"></i></div>
+                <div class="cert-content">
+                    <h3>Content Marketing Certification</h3>
+                    <p>Strategies for creating engaging, audience-focused content.</p>
+                    <p><small>Issued by HubSpot Academy, Mar 2025</small></p>
+                    <a href="https://app.hubspot.com/academy/achievements/vg57sx21/fr/1/mourad-razgallah/le-marketing-de-contenu" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fas fa-language"></i></div>
+                <div class="cert-content">
+                    <h3>EF SET English Certificate (C1 Advanced)</h3>
+                    <p>Advanced proficiency in English language skills.</p>
+                    <p><small>Issued by EF SET, Mar 2025</small></p>
+                    <a href="https://cert.efset.org/en/G8YoNn" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-google"></i></div>
+                <div class="cert-content">
+                    <h3>Google Ads Video Certification</h3>
+                    <p>Mastery in video advertising campaigns on Google platforms.</p>
+                    <p><small>Issued by Skillshop, Mar 2025</small></p>
+                    <a href="https://skillshop.credential.net/3e94a719-9be7-4be7-8546-45f37d912314#acc.oG7HRMmP" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-google"></i></div>
+                <div class="cert-content">
+                    <h3>Google Analytics Certification</h3>
+                    <p>Advanced skills in web analytics and data-driven decision making.</p>
+                    <p><small>Issued by Skillshop, Mar 2025</small></p>
+                    <a href="https://skillshop.credential.net/79c9763e-1cc6-4d54-9c9d-13a4299d1f22#acc.vpT4GPEZ" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                <div class="cert-content">
+                    <h3>LinkedIn Content and Creative Design</h3>
+                    <p>Techniques for impactful content creation and design on LinkedIn.</p>
+                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                    <a href="https://verify.skilljar.com/c/p7oza6zetbto" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                <div class="cert-content">
+                    <h3>SEO Foundations</h3>
+                    <p>Fundamentals of search engine optimization strategies.</p>
+                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                    <a href="https://www.linkedin.com/learning/certificates/6924fca7fa62c4276005e6681ea1c154896c9aef772b2c658a577ed1f9e18271" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                <div class="cert-content">
+                    <h3>Strategic Social Media: Grow Your Business</h3>
+                    <p>Skills to expand business reach through social media strategies.</p>
+                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                    <a href="https://www.linkedin.com/learning/certificates/9fd10142d78d12eab333d9a203999f303b826d321447d42a01f6a66e7cd5d304" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"><i class="fab fa-google"></i></div>
+                <div class="cert-content">
+                    <h3>AI-Powered Performance Ads Certification</h3>
+                    <p>Proficiency in AI-driven advertising solutions on Google.</p>
+                    <p><small>Issued by Skillshop, Mar 2025</small></p>
+                    <a href="https://skillshop.credential.net/f50333d9-3755-4fe8-9f87-7ece1aac0484#acc.xGY7k1yU" target="_blank" class="btn btn-secondary">View Credential</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Collaborate</h2>
+                    <p>I'm available for freelance projects and full-time roles. Reach out for collaborations or inquiries!</p>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <a href="mailto:mouradrazgallah01@gmail.com">mouradrazgallah01@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <a href="tel:+21628199608">+216 28199608</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Tunis, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mourad-razgallah-443640171/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/mouradrazgallah/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/mwplrlkz" method="POST">
+                        <div id="formSuccess" class="form-success">Thank you! Your message has been sent.</div>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <div class="error-message">Please enter a subject</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo">Mourad<span style="color: var(--secondary-color);">.</span></a>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#portfolio">Work</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2025 Mourad Razgallah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">×</button>
+            <iframe class="modal-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        function showCategory(category) {
+            portfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                item.classList.toggle('active', itemCategory === category);
+            });
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+                showCategory(filter);
+            });
+        });
+
+        // Show Facebook by default
+        showCategory('facebook');
+
+        // Modal Functionality
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.querySelector('.modal-video');
+        const watchButtons = document.querySelectorAll('.watch-video');
+        const closeModal = document.querySelector('.close-modal');
+        watchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video');
+                const aspect = button.closest('.portfolio-item').getAttribute('data-aspect');
+                modalVideo.src = videoUrl;
+                modalVideo.style.aspectRatio = aspect === '16-9' ? '16 / 9' : '9 / 16';
+                modal.style.display = 'flex';
+            });
+        });
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalVideo.src = '';
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalVideo.src = '';
+            }
+        });
+        modalVideo.onerror = () => {
+            modal.style.display = 'none';
+            alert('Error loading video. Please try again.');
+        };
+
+        // Slider Functionality
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const navDots = document.querySelectorAll('.slider-nav span');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                navDots[i].classList.toggle('active', i === index);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Auto-slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        // Form Validation and Submission
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const subject = document.getElementById('subject');
+            let isValid = true;
+
+            [name, email, subject].forEach(input => {
+                const error = input.nextElementSibling;
+                if (!input.value.trim()) {
+                    error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    error.style.display = 'none';
+                }
+            });
+
+            if (isValid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('formSuccess').style.display = 'block';
+                        form.reset();
+                        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 3000);
+                    }
+                });
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.nextElementSibling.textContent = 'Please enter a valid email';
+                email.nextElementSibling.style.display = 'block';
+            }
+        });
+
+        // Thumbnail Fetching
+        document.addEventListener('DOMContentLoaded', () => {
+            const portfolioImages = document.querySelectorAll('.portfolio-img img');
+            portfolioImages.forEach(img => {
+                const videoId = img.getAttribute('data-video-id');
+                const category = img.closest('.portfolio-item').getAttribute('data-category');
+                const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
+
+                if (category === 'youtube') {
+                    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                } else if (category === 'tiktok') {
+                    fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            img.src = data.thumbnail_url || fallbackImg;
+                        })
+                        .catch(() => {
+                            img.src = fallbackImg;
+                        });
+                } else if (category === 'facebook') {
+                    const fbImg = `images/facebook-${videoId}.jpg`;
+                    img.onerror = () => { img.src = fallbackImg; };
+                    img.src = fbImg; // Assumes local images; replace with placeholders if unavailable
+                }
+            });
+        });
+    </script>
+</body>
+</html>
