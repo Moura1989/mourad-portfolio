@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #007bff;
+            --primary-color: #0056b3; /* Darker blue */
             --secondary-color: #ff6f61;
             --text-color: #333;
             --bg-color: #f4f4f4;
@@ -128,6 +128,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: top 0.3s ease;
         }
 
         .nav-container {
@@ -707,6 +708,13 @@
             .portfolio-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
+
+            body {
+                font-size: 1.1rem;
+            }
+            .header-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -731,7 +739,7 @@
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#achievements">Achievements</a> <!-- Added link -->
+                <a href="#achievements">Achievements</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -767,6 +775,7 @@
                             <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                         </div>
                     </div>
+                    <a href="resume.pdf" class="btn" download>Download Resume</a>
                 </div>
                 <div class="about-image">
                     <img src="profile.png" alt="Mourad Razgallah">
@@ -839,7 +848,7 @@
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Traditional Olive Press</h3>
-                            <p>70-year-old Tunisian keeps tradition alive</p>
+                            <p>70-year-old Tunisian keeps tradition alive | 1.2M Views</p>
                             <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7437258133514226999">Watch Video</button>
                         </div>
                     </div>
@@ -1199,7 +1208,7 @@
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#portfolio">Work</a>
-                <a href="#achievements">Achievements</a> <!-- Added link -->
+                <a href="#achievements">Achievements</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -1227,6 +1236,10 @@
         const navLinks = document.querySelector('.nav-links');
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
         // Portfolio Filter
@@ -1286,6 +1299,7 @@
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
         const navDots = document.querySelectorAll('.slider-nav span');
+        const sliderContainer = document.querySelector('.slider-container');
         let currentSlide = 0;
 
         function showSlide(index) {
@@ -1312,11 +1326,18 @@
             });
         });
 
-        // Auto-slide
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+        // Auto-slide with pause/play
+        let isPlaying = true;
+        const autoSlide = setInterval(() => {
+            if (isPlaying) {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
         }, 5000);
+
+        sliderContainer.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+        });
 
         // Back to Top Button
         const backToTop = document.querySelector('.back-to-top');
@@ -1352,6 +1373,7 @@
                     if (response.ok) {
                         document.getElementById('formSuccess').style.display = 'block';
                         form.reset();
+                        document.getElementById('formSuccess').style.display = 'none';
                         setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 3000);
                     }
                 });
@@ -1389,4 +1411,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
