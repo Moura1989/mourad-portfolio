@@ -460,6 +460,34 @@
             background: var(--primary-color);
         }
 
+        /* Achievements Section */
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .achieve-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .achieve-img {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .achieve-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
         /* Certifications Section */
         .cert-grid {
             display: grid;
@@ -703,6 +731,7 @@
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
                 <a href="#portfolio">Portfolio</a>
+                <a href="#achievements">Achievements</a> <!-- Added link -->
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -973,95 +1002,133 @@
         </div>
     </section>
 
-<!-- Certifications Section -->
-<section id="certifications" class="section certifications">
-    <div class="container">
-        <h2 class="section-title">My Certifications</h2>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
-                <div class="cert-content">
-                    <h3>Advertising on LinkedIn</h3>
-                    <p>Expertise in leveraging LinkedIn for effective advertising campaigns.</p>
-                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
-                    <a href="https://www.linkedin.com/learning/certificates/be2e62c1d0e9873b35267ed241c170d10b220f80bbd0fa69debe2ee2e924589b" target="_blank" class="btn btn-secondary">View Credential</a>
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="achieve-grid">
+                <div class="achieve-card">
+                    <div class="achieve-img"><i class="fas fa-users"></i></div>
+                    <div class="achieve-content">
+                        <h3>35%+ Audience Growth</h3>
+                        <p>Drove engagement at Al Arabiya TV with high-impact video content.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-hubspot"></i></div>
-                <div class="cert-content">
-                    <h3>Content Marketing Certification</h3>
-                    <p>Strategies for creating engaging, audience-focused content.</p>
-                    <p><small>Issued by HubSpot Academy, Mar 2025</small></p>
-                    <a href="https://app.hubspot.com/academy/achievements/vg57sx21/fr/1/mourad-razgallah/le-marketing-de-contenu" target="_blank" class="btn btn-secondary">View Credential</a>
+                <div class="achieve-card">
+                    <div class="achieve-img"><i class="fas fa-video"></i></div>
+                    <div class="achieve-content">
+                        <h3>Record-Breaking Video Series</h3>
+                        <p>Launched Al Arabiya’s most-watched segment on regional issues.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fas fa-language"></i></div>
-                <div class="cert-content">
-                    <h3>EF SET English Certificate (C1 Advanced)</h3>
-                    <p>Advanced proficiency in English language skills.</p>
-                    <p><small>Issued by EF SET, Mar 2025</small></p>
-                    <a href="https://cert.efset.org/en/G8YoNn" target="_blank" class="btn btn-secondary">View Credential</a>
+                <div class="achieve-card">
+                    <div class="achieve-img"><i class="fas fa-chart-line"></i></div>
+                    <div class="achieve-content">
+                        <h3>25%+ Website Traffic Increase</h3>
+                        <p>Boosted traffic with SEO-driven content strategies.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-google"></i></div>
-                <div class="cert-content">
-                    <h3>Google Ads Video Certification</h3>
-                    <p>Mastery in video advertising campaigns on Google platforms.</p>
-                    <p><small>Issued by Skillshop, Mar 2025</small></p>
-                    <a href="https://skillshop.credential.net/3e94a719-9be7-4be7-8546-45f37d912314#acc.oG7HRMmP" target="_blank" class="btn btn-secondary">View Credential</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-google"></i></div>
-                <div class="cert-content">
-                    <h3>Google Analytics Certification</h3>
-                    <p>Advanced skills in web analytics and data-driven decision making.</p>
-                    <p><small>Issued by Skillshop, Mar 2025</small></p>
-                    <a href="https://skillshop.credential.net/79c9763e-1cc6-4d54-9c9d-13a4299d1f22#acc.vpT4GPEZ" target="_blank" class="btn btn-secondary">View Credential</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
-                <div class="cert-content">
-                    <h3>LinkedIn Content and Creative Design</h3>
-                    <p>Techniques for impactful content creation and design on LinkedIn.</p>
-                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
-                    <a href="https://verify.skilljar.com/c/p7oza6zetbto" target="_blank" class="btn btn-secondary">View Credential</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
-                <div class="cert-content">
-                    <h3>SEO Foundations</h3>
-                    <p>Fundamentals of search engine optimization strategies.</p>
-                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
-                    <a href="https://www.linkedin.com/learning/certificates/6924fca7fa62c4276005e6681ea1c154896c9aef772b2c658a577ed1f9e18271" target="_blank" class="btn btn-secondary">View Credential</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-linkedin"></i></div>
-                <div class="cert-content">
-                    <h3>Strategic Social Media: Grow Your Business</h3>
-                    <p>Skills to expand business reach through social media strategies.</p>
-                    <p><small>Issued by LinkedIn, Mar 2025</small></p>
-                    <a href="https://www.linkedin.com/learning/certificates/9fd10142d78d12eab333d9a203999f303b826d321447d42a01f6a66e7cd5d304" target="_blank" class="btn btn-secondary">View Credential</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img"><i class="fab fa-google"></i></div>
-                <div class="cert-content">
-                    <h3>AI-Powered Performance Ads Certification</h3>
-                    <p>Proficiency in AI-driven advertising solutions on Google.</p>
-                    <p><small>Issued by Skillshop, Mar 2025</small></p>
-                    <a href="https://skillshop.credential.net/f50333d9-3755-4fe8-9f87-7ece1aac0484#acc.xGY7k1yU" target="_blank" class="btn btn-secondary">View Credential</a>
+                <div class="achieve-card">
+                    <div class="achieve-img"><i class="fas fa-award"></i></div>
+                    <div class="achieve-content">
+                        <h3>10x Team Reach Growth</h3>
+                        <p>Trained 5 journalists, enhancing multimedia output and reach.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section> 
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <h2 class="section-title">My Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                    <div class="cert-content">
+                        <h3>Advertising on LinkedIn</h3>
+                        <p>Expertise in leveraging LinkedIn for effective advertising campaigns.</p>
+                        <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                        <a href="https://www.linkedin.com/learning/certificates/be2e62c1d0e9873b35267ed241c170d10b220f80bbd0fa69debe2ee2e924589b" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-hubspot"></i></div>
+                    <div class="cert-content">
+                        <h3>Content Marketing Certification</h3>
+                        <p>Strategies for creating engaging, audience-focused content.</p>
+                        <p><small>Issued by HubSpot Academy, Mar 2025</small></p>
+                        <a href="https://app.hubspot.com/academy/achievements/vg57sx21/fr/1/mourad-razgallah/le-marketing-de-contenu" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fas fa-language"></i></div>
+                    <div class="cert-content">
+                        <h3>EF SET English Certificate (C1 Advanced)</h3>
+                        <p>Advanced proficiency in English language skills.</p>
+                        <p><small>Issued by EF SET, Mar 2025</small></p>
+                        <a href="https://cert.efset.org/en/G8YoNn" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-google"></i></div>
+                    <div class="cert-content">
+                        <h3>Google Ads Video Certification</h3>
+                        <p>Mastery in video advertising campaigns on Google platforms.</p>
+                        <p><small>Issued by Skillshop, Mar 2025</small></p>
+                        <a href="https://skillshop.credential.net/3e94a719-9be7-4be7-8546-45f37d912314#acc.oG7HRMmP" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-google"></i></div>
+                    <div class="cert-content">
+                        <h3>Google Analytics Certification</h3>
+                        <p>Advanced skills in web analytics and data-driven decision making.</p>
+                        <p><small>Issued by Skillshop, Mar 2025</small></p>
+                        <a href="https://skillshop.credential.net/79c9763e-1cc6-4d54-9c9d-13a4299d1f22#acc.vpT4GPEZ" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                    <div class="cert-content">
+                        <h3>LinkedIn Content and Creative Design</h3>
+                        <p>Techniques for impactful content creation and design on LinkedIn.</p>
+                        <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                        <a href="https://verify.skilljar.com/c/p7oza6zetbto" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                    <div class="cert-content">
+                        <h3>SEO Foundations</h3>
+                        <p>Fundamentals of search engine optimization strategies.</p>
+                        <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                        <a href="https://www.linkedin.com/learning/certificates/6924fca7fa62c4276005e6681ea1c154896c9aef772b2c658a577ed1f9e18271" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-linkedin"></i></div>
+                    <div class="cert-content">
+                        <h3>Strategic Social Media: Grow Your Business</h3>
+                        <p>Skills to expand business reach through social media strategies.</p>
+                        <p><small>Issued by LinkedIn, Mar 2025</small></p>
+                        <a href="https://www.linkedin.com/learning/certificates/9fd10142d78d12eab333d9a203999f303b826d321447d42a01f6a66e7cd5d304" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-img"><i class="fab fa-google"></i></div>
+                    <div class="cert-content">
+                        <h3>AI-Powered Performance Ads Certification</h3>
+                        <p>Proficiency in AI-driven advertising solutions on Google.</p>
+                        <p><small>Issued by Skillshop, Mar 2025</small></p>
+                        <a href="https://skillshop.credential.net/f50333d9-3755-4fe8-9f87-7ece1aac0484#acc.xGY7k1yU" target="_blank" class="btn btn-secondary">View Credential</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
@@ -1132,6 +1199,7 @@
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#portfolio">Work</a>
+                <a href="#achievements">Achievements</a> <!-- Added link -->
                 <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -1321,4 +1389,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
