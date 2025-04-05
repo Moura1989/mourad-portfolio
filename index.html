@@ -224,6 +224,47 @@
             border-radius: 10px;
         }
 
+        /* Resume Preview */
+        .resume-preview {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .resume-preview h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .resume-preview p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .resume-preview ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .resume-preview ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .resume-preview ul li:before {
+            content: '\f058'; /* Font Awesome circle-check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
         /* Portfolio Section */
         .portfolio-filter {
             text-align: center;
@@ -774,6 +815,17 @@
                             <div class="skill-name"><span>Video Editing</span><span>98%</span></div>
                             <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                         </div>
+                    </div>
+                    <div class="resume-preview">
+                        <h3>Resume Preview</h3>
+                        <p><strong>Mourad Razgallah</strong><br>Senior Digital Content Producer | Social Media Strategist | Video Journalist<br>Tunis, Tunisia | +216 28199608 | mouradrazgallah01@gmail.com</p>
+                        <p><strong>Summary:</strong> Social Media Strategist and Digital Content Producer with 10+ years of experience in creating and managing engaging content for platforms like Facebook, Instagram, Twitter, YouTube, and TikTok. Skilled in graphic design, photo editing, and video production, with a proven track record of increasing audience engagement by 35%+ through data-driven strategies.</p>
+                        <ul>
+                            <li>Drove a 35% rise in audience interaction at Al Arabiya TV by creating high-impact digital content.</li>
+                            <li>Launched a record-breaking social media video series on regional issues.</li>
+                            <li>Increased website traffic by 25% with SEO-driven content strategies.</li>
+                        </ul>
+                        <p>For full details, download my resume below.</p>
                     </div>
                     <a href="resume.pdf" class="btn" download>Download Resume</a>
                 </div>
@@ -1411,4 +1463,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
