@@ -14,7 +14,7 @@
     <style>
         :root {
             --primary-color: #007bff;
-            --secondary-color: #ff8a65; /* Softened for professionalism */
+            --secondary-color: #ff8a65;
             --text-color: #333;
             --bg-color: #f4f4f4;
             --white: #fff;
@@ -103,7 +103,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header-bg.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080?text=Header+Background');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -399,87 +399,6 @@
             background: rgba(0, 0, 0, 0.8);
         }
 
-        /* Slider Section */
-        .slider-section {
-            background: var(--white);
-        }
-
-        .slider-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .slider {
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .slide {
-            display: none;
-            position: relative;
-        }
-
-        .slide.active {
-            display: block;
-        }
-
-        .slide img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .slide-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: var(--white);
-            padding: 15px;
-            border-radius: 5px;
-        }
-
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--white);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-
-        .slider-nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .slider-nav span {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #ddd;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .slider-nav span.active {
-            background: var(--primary-color);
-        }
-
         /* Achievements & Certifications Sections */
         .cert-grid {
             display: grid;
@@ -717,7 +636,7 @@
     <!-- Header/Hero Section -->
     <header>
         <div class="container header-content">
-            <img src="your-photo.jpg" alt="Mourad Razgallah, Senior Digital Content Producer" class="profile-img">
+            <img src="https://via.placeholder.com/150?text=Profile+Photo" alt="Mourad Razgallah, Senior Digital Content Producer" class="profile-img">
             <h1 class="header-title">Mourad Razgallah</h1>
             <p class="header-subtitle">Senior Digital Content Producer, Social Media Strategist & Video Journalist</p>
             <div class="header-btns">
@@ -772,7 +691,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="profile.png" alt="Mourad Razgallah working on digital content">
+                    <img src="https://via.placeholder.com/400x400?text=Profile+Image" alt="Mourad Razgallah working on digital content">
                 </div>
             </div>
         </div>
@@ -811,11 +730,44 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add more portfolio items with CV-relevant titles/descriptions -->
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+2184273081737664" alt="Libya Breaking News" data-video-id="2184273081737664">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Libya Breaking News</h3>
+                            <p>Field report enhancing media credibility.</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F2184273081737664%2F&show_text=false&width=267" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+1458828668164741" alt="Mauritania Exclusive" data-video-id="1458828668164741">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Mauritania Exclusive</h3>
+                            <p>Coverage driving 50% engagement increase.</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FAlArabiyaTunisia%2Fvideos%2F1458828668164741%2F&show_text=false&width=267" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item active" data-category="facebook" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=Facebook+859467989132065" alt="Social Media Video Series" data-video-id="859467989132065">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-facebook-f play-icon"></i>
+                            <h3>Social Media Video Series</h3>
+                            <p>Boosted post reach by 30%.</p>
+                            <button class="btn watch-video" data-video="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Falhadath.Tunis%2Fvideos%2F859467989132065%2F&show_text=false&width=267" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- TikTok Videos (9:16) -->
                 <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
                     <div class="portfolio-img">
-                        <img src="https://via.placeholder.com/112x200?text=Loading..." alt="Traditional Olive Press Video" data-video-id="7437258133514226999">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+7437258133514226999" alt="Traditional Olive Press Video" data-video-id="7437258133514226999">
                         <div class="portfolio-overlay">
                             <i class="fab fa-tiktok play-icon"></i>
                             <h3>Traditional Olive Press</h3>
@@ -824,6 +776,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="portfolio-item" data-category="tiktor" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+7445432285534506246" alt="Respect for Teachers Video" data-video-id="7445432285534506246">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Respect for Teachers</h3>
+                            <p>Students’ initiatives to honor educators.</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7445432285534506246" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+7427944898394950917" alt="Street Stories Video" data-video-id="7427944898394950917">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Street Stories</h3>
+                            <p>Two Tunisians sell Salade Mechouia.</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7427944898394950917" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+7439012279183510839" alt="Successful Stories Video" data-video-id="7439012279183510839">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Successful Stories</h3>
+                            <p>Breaking Tradition: Sousse’s First Female Barber.</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7439012279183510839" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="tiktok" data-aspect="9-16">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/112x200?text=TikTok+7390610100265831685" alt="Etna Eruption Video" data-video-id="7390610100265831685">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-tiktok play-icon"></i>
+                            <h3>Etna Eruption</h3>
+                            <p>Volcanic activity’s impact on Tunisia.</p>
+                            <button class="btn watch-video" data-video="https://www.tiktok.com/embed/7390610100265831685" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- YouTube Videos (16:9) -->
                 <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
                     <div class="portfolio-img">
@@ -836,7 +833,50 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add remaining portfolio items similarly -->
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/6yV5yGqKDiw/hqdefault.jpg" alt="Tunisia Social Issues" data-video-id="6yV5yGqKDiw">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Tunisia Social Issues</h3>
+                            <p>In-depth multimedia storytelling.</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/6yV5yGqKDiw" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/VKbUcbXmh3c/hqdefault.jpg" alt="Libya Political Analysis" data-video-id="VKbUcbXmh3c">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Libya Political Analysis</h3>
+                            <p>Boosted channel engagement by 20%.</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/VKbUcbXmh3c" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/0zb1IgnkNsY/hqdefault.jpg" alt="Mauritania Field Report" data-video-id="0zb1IgnkNsY">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Mauritania Field Report</h3>
+                            <p>Live event broadcasting expertise.</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/0zb1IgnkNsY" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="youtube" data-aspect="16-9">
+                    <div class="portfolio-img">
+                        <img src="https://img.youtube.com/vi/XBVmTjVPNT4/hqdefault.jpg" alt="Regional News Roundup" data-video-id="XBVmTjVPNT4">
+                        <div class="portfolio-overlay">
+                            <i class="fab fa-youtube play-icon"></i>
+                            <h3>Regional News Roundup</h3>
+                            <p>Data-driven content optimization.</p>
+                            <button class="btn watch-video" data-video="https://www.youtube.com/embed/XBVmTjVPNT4" aria-label="Watch Video">Watch Video</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1074,6 +1114,10 @@
         window.addEventListener('load', () => {
             document.querySelector('.preloader').classList.add('hidden');
         });
+        // Fallback: Hide preloader after 3 seconds if load event fails
+        setTimeout(() => {
+            document.querySelector('.preloader').classList.add('hidden');
+        }, 3000);
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1174,26 +1218,6 @@
                 email.nextElementSibling.textContent = 'Please enter a valid email';
                 email.nextElementSibling.style.display = 'block';
             }
-        });
-
-        // Thumbnail Fetching (Simplified for brevity)
-        document.addEventListener('DOMContentLoaded', () => {
-            const portfolioImages = document.querySelectorAll('.portfolio-img img');
-            portfolioImages.forEach(img => {
-                const videoId = img.getAttribute('data-video-id');
-                const category = img.closest('.portfolio-item').getAttribute('data-category');
-                const fallbackImg = 'https://via.placeholder.com/112x200?text=Thumbnail+Not+Available';
-                if (category === 'youtube') {
-                    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                } else if (category === 'tiktok') {
-                    fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/video/${videoId}`)
-                        .then(response => response.json())
-                        .then(data => { img.src = data.thumbnail_url || fallbackImg; })
-                        .catch(() => { img.src = fallbackImg; });
-                } else if (category === 'facebook') {
-                    img.onerror = () => { img.src = fallbackImg; };
-                }
-            });
         });
     </script>
 </body>
