@@ -123,16 +123,15 @@
             animation: fadeInUp 1.2s ease-out;
         }
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin-bottom: 24px;
-            border: 6px solid var(--white);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    border: 6px solid var(--white);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
         .profile-img:hover {
             transform: scale(1.05);
         }
@@ -841,28 +840,34 @@
         }
 
         /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: var(--primary-color);
-            color: var(--white);
-            width: 56px;
-            height: 56px;
-            text-align: center;
-            line-height: 56px;
-            border-radius: 50%;
-            display: none;
-            transition: var(--transition);
-            z-index: 1000;
-        }
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--primary-color);
+    color: var(--white);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: none;
+    transition: var(--transition);
+    z-index: 1000;
+    /* Use flexbox for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Ensure no underline */
+}
 
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
+.back-to-top i {
+    font-size: 1.5rem; /* Adjust icon size if needed */
+}
 
+.back-to-top:hover {
+    background: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1469,10 +1474,9 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
+<a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
     <!-- Video Modal -->
     <div id="videoModal" class="modal">
         <div class="modal-content">
